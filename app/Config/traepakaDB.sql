@@ -1,7 +1,7 @@
-CREATE DATABASE traepakaDB;
-CREATE USER 'traepakaDBuser'@'localhost' IDENTIFIED BY 'traepakaDBpass';
-GRANT ALL PRIVILEGES ON traepaka.* TO traepakaDBuser@'localhost' IDENTIFIED BY "traepakaDBpass";
-USE traepakaDB;
+CREATE DATABASE traepaka_bd;
+CREATE USER 'traepakauser'@'localhost' IDENTIFIED BY 'traepakapass';
+GRANT ALL PRIVILEGES ON traepaka_bd.* TO traepakauser@'localhost' IDENTIFIED BY "traepakapass";
+USE traepaka_bd;
 
 
 -- -----------------------------------------------------
