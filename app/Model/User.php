@@ -12,7 +12,7 @@ App::uses('AppModel', 'Model');
 				'associationForeignKey' => 'response_id'
 	        )
 	    );
-
+/*
 		public $hasMany = array(
 			'UserPosts' => array(
 				'className' => 'Post',
@@ -24,7 +24,7 @@ App::uses('AppModel', 'Model');
 	        )
 			);
 
-
+*/
 
 		public $validate = array(
 
@@ -82,6 +82,15 @@ App::uses('AppModel', 'Model');
 					)		
 				)									
 		);
+		
+		public $hasMany = array(
+					'Producto'=> array(
+						'className'=>'Producto',
+						'foreignKey'=> 'user_id',
+						'conditions'=>'',
+						'depend' => true,
+					)
+				);
 
 
 		public function beforeSave($options = array()) {

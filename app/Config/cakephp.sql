@@ -9,7 +9,7 @@ USE traepaka_bd;
 CREATE DATABASE cakephp;
 /*CREATE DATABASE ebsxjflv_igd;*/
 
-CREATE USER 'cakephpuser'@'localhost' IDENTIFIED BY 'cakephppass';
+/*CREATE USER 'cakephpuser'@'localhost' IDENTIFIED BY 'cakephppass'; */
 /*CREATE USER 'ebsxj_igd'@'localhost' IDENTIFIED BY 'VilarTheBoss2015';*/
 
 GRANT ALL PRIVILEGES ON cakephp.* TO cakephpuser@'localhost' IDENTIFIED BY "cakephppass";
@@ -31,6 +31,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `surname` VARCHAR(50) NOT NULL, 
   `password`  VARCHAR(255) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
+  `tipo` VARCHAR(20) NOT NULL,
+  `created` DATETIME,
   PRIMARY KEY (`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -45,10 +47,12 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` INT UNSIGNED AUTO_INCREMENT,
   `name` VARCHAR (30) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
-  `date` TIMESTAMP,
+  `moddate` TIMESTAMP,
   `place` VARCHAR(20) NOT NULL,
   `price` INT (9) NOT NULL,
   `category` ENUM ('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros'),
+  `created` DATETIME,
+  `modified` DATETIME,
   `user_id` INT UNSIGNED,
   PRIMARY KEY (`id`)
 ) 
@@ -64,7 +68,7 @@ DROP TABLE IF EXISTS `chats`;
 CREATE TABLE IF NOT EXISTS `chats` (
   `id` INT UNSIGNED AUTO_INCREMENT,
   `content` TEXT,
-  `date` TIMESTAMP NOT NULL,
+  `moddate` TIMESTAMP NOT NULL,
   `user_id` INTEGER UNSIGNED, 
   `product_id` INTEGER UNSIGNED,
   PRIMARY KEY (`id`)
@@ -117,59 +121,60 @@ ALTER TABLE responses_chats
 -- INSERTS `USERS`
 -- -----------------------------------------------------
 
-INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`) VALUES 
-(NULL, 'rgcarrera', 'Ramon ', 'Gago Carrera', '1234', 'rgcarrera@gmail.com'), 
-(NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '1234', 'joshua93@gmail.com');
+INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`tipo`,`created`) VALUES 
+(NULL, 'rgcarrera', 'Ramon ', 'Gago Carrera', '1234', 'rgcarrera@gmail.com','admin',NOW()), 
+(NULL, 'pepe1993', 'Pepe ', 'Rodriguez Carrera', '1234', 'pepecarrera@gmail.com','user',NOW()), 
+(NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '1234', 'joshua93@gmail.com','admin',NOW());
 
 
 -- -----------------------------------------------------
 -- INSERTS `PRODUCTS`
 -- -----------------------------------------------------
 
-INSERT INTO `products` (`id`, `name`, `description`, `date`,`place`, `price`, `category`, `user_id`) VALUES 
-(NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, 'Casa y Jardin', '1'), 
-(NULL, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', CURRENT_TIMESTAMP, 'Santander', 550, 'Tecnologia', '2'), 
-(NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, 'Motor', '3'), 
-(NULL, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', CURRENT_TIMESTAMP, 'Madrid', 115, 'Moda', '4'), 
-(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, 'Caza y Pesca', '5')
-(NULL, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', CURRENT_TIMESTAMP, 'Alicante', 30, 'Tecnologia', '6');
+INSERT INTO `products` (`id`, `name`, `description`, `moddate`,`place`, `price`, `category`, `user_id`,`created`,`modified`) VALUES 
+(NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, 'Casa y Jardin', NULL,NOW(),NOW()), 
+(NULL, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', CURRENT_TIMESTAMP, 'Santander', 550, 'Tecnologia', NULL,NOW(),NOW()), 
+(NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, 'Motor', NULL,NOW(),NOW()), 
+(NULL, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', CURRENT_TIMESTAMP, 'Madrid', 115, 'Moda', NULL,NOW(),NOW()), 
+(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, 'Caza y Pesca', NULL,NOW(),NOW()),
+(NULL, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', CURRENT_TIMESTAMP, 'Alicante', 30, 'Tecnologia', NULL,NOW(),NOW());
 
 -- -----------------------------------------------------
 -- INSERTS `CHATS`
 -- -----------------------------------------------------
 
-INSERT INTO `chats` (`id`, `content`, `date`, `user_id`, `product_id`) VALUES 
-(NULL, 'Debes ..', CURRENT_TIMESTAMP, NULL, '5', '1'), 
-(NULL, 'Hola soy...', CURRENT_TIMESTAMP, NULL, '6', '1'), 
-(NULL, 'Mira estoy en..', CURRENT_TIMESTAMP, NULL, '5', '2'), 
-(NULL, 'Que tal?..', CURRENT_TIMESTAMP, NULL, '6', '2'), 
-(NULL, 'Anda justo estaba buscando..', CURRENT_TIMESTAMP, NULL, '1', '3'), 
-(NULL, 'Oye, me interesa..', CURRENT_TIMESTAMP, NULL, '6', '3'), 
-(NULL, 'Te gustaría..', CURRENT_TIMESTAMP, NULL, '1', '4'), 
-(NULL, 'Podriamos quedar..', CURRENT_TIMESTAMP, NULL, '6', '4'), 
-(NULL, 'He pensado..', CURRENT_TIMESTAMP, NULL, '1', '5'), 
-(NULL, 'Buenas soy...', CURRENT_TIMESTAMP, NULL, '5', '5')
-(NULL, 'Buenas tardes soy..', CURRENT_TIMESTAMP, NULL, '1', '6'), 
-(NULL, 'Que te parece si..?', CURRENT_TIMESTAMP, NULL, '5', '6');
+INSERT INTO `chats` (`id`, `content`, `moddate`, `user_id`, `product_id`) VALUES 
+(NULL, 'Debes ..', CURRENT_TIMESTAMP, NULL,'1'), 
+(NULL, 'Hola soy...', CURRENT_TIMESTAMP, NULL,'1'), 
+(NULL, 'Mira estoy en..', CURRENT_TIMESTAMP, NULL,'2'), 
+(NULL, 'Que tal?..', CURRENT_TIMESTAMP, NULL,'2'), 
+(NULL, 'Anda justo estaba buscando..', CURRENT_TIMESTAMP, NULL,'3'), 
+(NULL, 'Oye, me interesa..', CURRENT_TIMESTAMP, NULL,'3'), 
+(NULL, 'Te gustaría..', CURRENT_TIMESTAMP, NULL,'4'), 
+(NULL, 'Podriamos quedar..', CURRENT_TIMESTAMP, NULL,'4'), 
+(NULL, 'He pensado..', CURRENT_TIMESTAMP, NULL,'5'), 
+(NULL, 'Buenas soy...', CURRENT_TIMESTAMP, NULL,'5'),
+(NULL, 'Buenas tardes soy..', CURRENT_TIMESTAMP, NULL,'6'), 
+(NULL, 'Que te parece si..?', CURRENT_TIMESTAMP, NULL,'6');
 
 
 -- -----------------------------------------------------
 -- INSERTS `RESPONSES_CHATS`
 -- -----------------------------------------------------
 
-INSERT INTO `responses_chats` (`id`, `user_id`, `response_id`, `vote`) VALUES 
-(NULL, '5', '1', '1'), 
-(NULL, '6', '1', '1'),
-(NULL, '5', '3', '0'), 
-(NULL, '1', '4', '1'), 
-(NULL, '5', '5', '1'), 
-(NULL, '6', '6', '0'), 
-(NULL, '5', '7', '0'), 
-(NULL, '1', '7', '1'), 
-(NULL, '6', '9', '1'), 
-(NULL, '5', '10', '0'), 
-(NULL, '6', '11', '1'), 
-(NULL, '5', '12', '0');
+INSERT INTO `responses_chats` (`id`, `user_id`, `chat_id`) VALUES 
+(NULL, NULL, '1'), 
+(NULL, NULL, '1'),
+(NULL, NULL, '3'), 
+(NULL, NULL, '4'), 
+(NULL, NULL, '5'), 
+(NULL, NULL, '6'), 
+(NULL, NULL, '7'), 
+(NULL, NULL, '7'), 
+(NULL, NULL, '9'), 
+(NULL, NULL, '10'), 
+(NULL, NULL, '11'), 
+(NULL, NULL, '12');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

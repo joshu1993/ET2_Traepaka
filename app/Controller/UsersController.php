@@ -1,13 +1,33 @@
 <?php 
 
 	class UsersController extends AppController {
+	
+	public $helpers= array('Html','Form');
 	    public function beforeFilter() {
 	    	parent::beforeFilter();
 
 	        $this->Auth->allow('index', 'add');
 	        $this->set('current_user', $this->Auth->user());
 	    }
-		public function index() {}
+		public function index() {
+		
+		this-> set('users', $this->User->find('all'));
+		}
+		public function ver($id= Null){
+		
+			if (!$id)
+			{
+				throw new NotFoundException('Datos Invalidos');
+			}
+			$user= $this->User->findById($id);
+			if(!$user)
+			{
+				throw new NotFoundException('El Usuario no existe');
+			}
+			$this-> set('user', $user);
+		}
+		
+		
 
 		public function login() {
 			if($this->request->is('post')) {
@@ -31,10 +51,23 @@
 				$this->User->create();
 				if($this->User->save($this->request->data)) {
 					$this->Flash->success('EL usuario ha sido creado.');
-					$this->redirect($this->referer());		
+					 return $this->redirect(array('action'->'index'));		
 				}
 				$this->Flash->error('EL usuario no se ha podido crear.');	
 				$this->redirect($this->referer());			
+			}
+		}
+		
+		public function eliminar($id)
+		{
+			if($this->request->is('get'))
+			{
+				throw new methodNotAllowedException('INCORRECTO');
+			}
+			if($this->User->eliminar($id))
+			{
+				$this->Flash->success('El usuario ha sido eliminado', $element= 'default', $params= array('class'=>'success'));
+				return $this->redirect(array('action'->'index'));
 			}
 		}
 	}

@@ -1,8 +1,21 @@
 <?php 
-include_once 'interface.php';
 
-class Producto implements iModel {
+
+class Producto extends AppModel
+ {
+ 
+	public $belongsTo = array(
+		'User'=>array(
+			'className'=>'User',
+			'foreignKey'=> 'user_id',
+			'conditions'=>'',
+			'depend' => true,
+		)
 	
+	
+	);
+ 
+	/*
     private $id_producto;
     private $fecha;
     private $nombre_producto;
@@ -16,6 +29,9 @@ class Producto implements iModel {
         $this->descripcion_producto = $descripcion_producto;
         $this->precio = $precio;        
     }
+	
+	
+	
 
     private function getid_producto ($pk){
         $db = new Database();
@@ -216,5 +232,6 @@ class Producto implements iModel {
 			$db->desconectar();
 			return result;
     }
+	*/
 }
 ?>

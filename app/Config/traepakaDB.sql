@@ -9,7 +9,7 @@ USE traepaka_bd;
 CREATE DATABASE cakephp;
 /*CREATE DATABASE ebsxjflv_igd;*/
 
-CREATE USER 'cakephpuser'@'localhost' IDENTIFIED BY 'cakephppass';
+/*CREATE USER cakephpuser@'localhost' IDENTIFIED BY 'cakephppass';*/
 /*CREATE USER 'ebsxj_igd'@'localhost' IDENTIFIED BY 'VilarTheBoss2015';*/
 
 GRANT ALL PRIVILEGES ON cakephp.* TO cakephpuser@'localhost' IDENTIFIED BY "cakephppass";
@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `surname` VARCHAR(50) NOT NULL, 
   `password`  VARCHAR(255) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
+  `tipo` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -45,11 +46,11 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` INT UNSIGNED AUTO_INCREMENT,
   `name` VARCHAR (30) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
-  `date` TIMESTAMP,
+  `moddate` TIMESTAMP,
   `place` VARCHAR(20) NOT NULL,
   `price` INT (9) NOT NULL,
   `category` ENUM ('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros'),
-  `user_id` INT UNSIGNED,
+  `users_id` INT UNSIGNED,
   PRIMARY KEY (`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -64,9 +65,9 @@ DROP TABLE IF EXISTS `chats`;
 CREATE TABLE IF NOT EXISTS `chats` (
   `id` INT UNSIGNED AUTO_INCREMENT,
   `content` TEXT,
-  `date` TIMESTAMP NOT NULL,
-  `user_id` INTEGER UNSIGNED, 
-  `product_id` INTEGER UNSIGNED,
+  `moddate` TIMESTAMP NOT NULL,
+  `users_id` INTEGER UNSIGNED, 
+  `products_id` INTEGER UNSIGNED,
   PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -80,34 +81,34 @@ DROP TABLE IF EXISTS `responses_chats`;
 
 CREATE TABLE IF NOT EXISTS `responses_chats` (
   id INT UNSIGNED AUTO_INCREMENT,
-  user_id INTEGER UNSIGNED,
-  chat_id INTEGER UNSIGNED,
+  users_id INTEGER UNSIGNED,
+  chats_id INTEGER UNSIGNED,
   PRIMARY KEY(`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE products
-  ADD FOREIGN KEY (user_id)
+  ADD FOREIGN KEY (users_id)
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 
 ALTER TABLE chats
-  ADD FOREIGN KEY (user_id) 
+  ADD FOREIGN KEY (users_id) 
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE,
-  ADD FOREIGN KEY (product_id) 
+  ADD FOREIGN KEY (products_id) 
   REFERENCES products (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 
 ALTER TABLE responses_chats
-  ADD FOREIGN KEY (user_id) 
+  ADD FOREIGN KEY (users_id) 
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE,
-  ADD FOREIGN KEY (chat_id) 
+  ADD FOREIGN KEY (chats_id) 
   REFERENCES chats (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
@@ -126,19 +127,19 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`) V
 -- INSERTS `PRODUCTS`
 -- -----------------------------------------------------
 
-INSERT INTO `products` (`id`, `name`, `description`, `date`,`place`, `price`, `category`, `user_id`) VALUES 
+INSERT INTO `products` (`id`, `name`, `description`, `moddate`,`place`, `price`, `category`, `users_id`) VALUES 
 (NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, 'Casa y Jardin', '1'), 
 (NULL, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', CURRENT_TIMESTAMP, 'Santander', 550, 'Tecnologia', '2'), 
 (NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, 'Motor', '3'), 
 (NULL, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', CURRENT_TIMESTAMP, 'Madrid', 115, 'Moda', '4'), 
-(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, 'Caza y Pesca', '5')
+(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, 'Caza y Pesca', '5'),
 (NULL, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', CURRENT_TIMESTAMP, 'Alicante', 30, 'Tecnologia', '6');
 
 -- -----------------------------------------------------
 -- INSERTS `CHATS`
 -- -----------------------------------------------------
 
-INSERT INTO `chats` (`id`, `content`, `date`, `user_id`, `product_id`) VALUES 
+INSERT INTO `chats` (`id`, `content`, `moddate`, `users_id`, `products_id`) VALUES 
 (NULL, 'Debes ..', CURRENT_TIMESTAMP, NULL, '5', '1'), 
 (NULL, 'Hola soy...', CURRENT_TIMESTAMP, NULL, '6', '1'), 
 (NULL, 'Mira estoy en..', CURRENT_TIMESTAMP, NULL, '5', '2'), 
@@ -157,7 +158,7 @@ INSERT INTO `chats` (`id`, `content`, `date`, `user_id`, `product_id`) VALUES
 -- INSERTS `RESPONSES_CHATS`
 -- -----------------------------------------------------
 
-INSERT INTO `responses_chats` (`id`, `user_id`, `response_id`, `vote`) VALUES 
+INSERT INTO `responses_chats` (`id`, `users_id`, `responses_id`, `vote`) VALUES 
 (NULL, '5', '1', '1'), 
 (NULL, '6', '1', '1'),
 (NULL, '5', '3', '0'), 
