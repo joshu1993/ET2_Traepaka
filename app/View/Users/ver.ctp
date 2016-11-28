@@ -7,7 +7,7 @@
 
 
 
-<h3>Prdocutos Usuario:</h3>
+<h3>Productos Usuario:</h3>
 
 <?php if(empty($user['Producto'])): ?>
 	
