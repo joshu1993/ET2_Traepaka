@@ -1,10 +1,16 @@
 <?php 
 
 	class UsersController extends AppController {
+
+
+		public function index() {
+		
+		$this->set('users', $this->User->find('all'));
+		}
 	
-	public $helpers = array('Html','Form');
+		public $helpers = array('Html','Form');
   
-	   public function beforeFilter() {
+	  	public function beforeFilter() {
 	    	parent::beforeFilter();
 			
 	        $this->Auth->allow('index', 'add');
@@ -13,18 +19,15 @@
 	    }
 		
 	
-		public function index() {
-		
-		$this->set('users', $this->User->find('all'));
-		}
-
 		public function ver($id= Null){
 		
 			if (!$id)
 			{
 				throw new NotFoundException('Datos Invalidos');
 			}
+
 			$user= $this->User->findById($id);
+
 			if(!$user)
 			{
 				throw new NotFoundException('El Usuario no existe');
@@ -57,10 +60,10 @@
 			if($this->request->is('post')) {
 				$this->User->create();
 				if($this->User->save($this->request->data)) {
-					$this->Flash->success('EL usuario ha sido creado.');
+					$this->Flash->success('EL usuario ha sido creado');
 					 return $this->redirect(array('action'=>'index'));		
 				}
-				$this->Flash->error('EL usuario no se ha podido crear.');	
+				$this->Flash->error('EL usuario no se ha podido crear');	
 				$this->redirect($this->referer());			
 			}
 		}
