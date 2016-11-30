@@ -75,11 +75,11 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*CREATE INDEX `fk_Chat_Usuario1_idx` ON `chats` (`user_id` ASC);*/
 
 -- -----------------------------------------------------
--- Table `responses_chats`
+-- Table `messages`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `responses_chats`;
+DROP TABLE IF EXISTS `messages`;
 
-CREATE TABLE IF NOT EXISTS `responses_chats` (
+CREATE TABLE IF NOT EXISTS `messages` (
   id INT UNSIGNED AUTO_INCREMENT,
   users_id INTEGER UNSIGNED,
   chats_id INTEGER UNSIGNED,
@@ -103,7 +103,7 @@ ALTER TABLE chats
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 
-ALTER TABLE responses_chats
+ALTER TABLE messages
   ADD FOREIGN KEY (users_id) 
   REFERENCES users (id)
   ON DELETE CASCADE
@@ -155,10 +155,10 @@ INSERT INTO `chats` (`id`, `content`, `moddate`, `users_id`, `products_id`) VALU
 
 
 -- -----------------------------------------------------
--- INSERTS `RESPONSES_CHATS`
+-- INSERTS `messages`
 -- -----------------------------------------------------
 
-INSERT INTO `responses_chats` (`id`, `users_id`, `responses_id`, `vote`) VALUES 
+INSERT INTO `messages` (`id`, `users_id`, `responses_id`, `vote`) VALUES 
 (NULL, '5', '1', '1'), 
 (NULL, '6', '1', '1'),
 (NULL, '5', '3', '0'), 

@@ -28,7 +28,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css(array('cake.generic','traepaka.css','bootstrap.min','bootstrap-theme.min'));
+		echo $this->Html->script(array('jquery','npm','bootstrap.min'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -36,6 +37,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	?>
 </head>
 <body>
+
+<!--meter aqui nuestra plantilla e iliminar esta-->
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
