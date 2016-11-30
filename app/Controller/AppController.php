@@ -66,11 +66,8 @@ class AppController extends Controller {
         $this->set('current_user', $this->Auth->user());
     }
 
-
     public function View() {
 
     }
-
-}
 
 }
