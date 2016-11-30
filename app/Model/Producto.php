@@ -9,10 +9,43 @@ class Producto extends AppModel
 			'className'=>'User',
 			'foreignKey'=> 'user_id',
 			'conditions'=>'',
-			'depend' => true,
+			'depend' => false,
 		)
 	
 	
+	);
+	
+	public $validate = array(
+	
+		'nombre'=> array(
+				'notEmpty' => array(
+					'rule'=> 'notEmpty'
+				),
+				'unique'=> array(
+					'rule' => 'isUnique',
+					'message'=> 'El nombre del producto debe ser unico'
+				)
+			),
+		'descripcion'=> array(
+				'notEmpty' => array(
+					'rule'=> 'notEmpty'
+				)
+			),
+		'place'=> array(
+				'notEmpty' => array(
+					'rule'=> 'notEmpty'
+				)
+			),
+		'price'=> array(
+				'notEmpty' => array(
+					'rule'=> 'notEmpty'
+				)
+			),
+		'category'=> array(
+				'notEmpty' => array(
+					'rule'=> 'notEmpty'
+				)
+			),
 	);
  
 	/*
