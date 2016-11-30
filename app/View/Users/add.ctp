@@ -7,5 +7,6 @@
 	echo $this->Form->input('surname');
 	echo $this->Form->input('password');
 	echo $this->Form->input('email');
+	echo $this->Form->input('role', array('options' => array('admin' => 'Admin', 'user' => 'User')
 	echo $this->Form->end('Crear Usuario');
 ?>

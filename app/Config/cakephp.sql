@@ -41,9 +41,9 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- -----------------------------------------------------
 -- Table PRODUCTS
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `products`;
+DROP TABLE IF EXISTS `productos`;
 
-CREATE TABLE IF NOT EXISTS `products` (
+CREATE TABLE IF NOT EXISTS `productos` (
   `id` INT UNSIGNED AUTO_INCREMENT,
   `name` VARCHAR (30) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
@@ -63,6 +63,8 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- -----------------------------------------------------
 -- Table CHATS
 -- -----------------------------------------------------
+/*
+
 DROP TABLE IF EXISTS `chats`;
 
 CREATE TABLE IF NOT EXISTS `chats` (
@@ -70,16 +72,20 @@ CREATE TABLE IF NOT EXISTS `chats` (
   `content` TEXT,
   `moddate` TIMESTAMP NOT NULL,
   `user_id` INTEGER UNSIGNED, 
-  `product_id` INTEGER UNSIGNED,
+  `producto_id` INTEGER UNSIGNED,
   PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+*/
 
 /*CREATE INDEX `fk_Chat_Usuario1_idx` ON `chats` (`user_id` ASC);*/
 
 -- -----------------------------------------------------
 -- Table `responses_chats`
 -- -----------------------------------------------------
+/*
+
 DROP TABLE IF EXISTS `responses_chats`;
 
 CREATE TABLE IF NOT EXISTS `responses_chats` (
@@ -89,20 +95,20 @@ CREATE TABLE IF NOT EXISTS `responses_chats` (
   PRIMARY KEY(`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-ALTER TABLE products
+*/
+ALTER TABLE productos
   ADD FOREIGN KEY (user_id)
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
-
+/*
 ALTER TABLE chats
   ADD FOREIGN KEY (user_id) 
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE,
-  ADD FOREIGN KEY (product_id) 
-  REFERENCES products (id)
+  ADD FOREIGN KEY (producto_id) 
+  REFERENCES productos (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 
@@ -116,13 +122,13 @@ ALTER TABLE responses_chats
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 
-
+*/
 -- -----------------------------------------------------
 -- INSERTS `USERS`
 -- -----------------------------------------------------
 
 INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`tipo`,`created`) VALUES 
-(NULL, 'rgcarrera', 'Ramon ', 'Gago Carrera', '1234', 'rgcarrera@gmail.com','admin',NOW()), 
+(null, 'rgcarrera', 'Ramon ', 'Gago Carrera', '1234', 'rgcarrera@gmail.com','admin',NOW()), 
 (NULL, 'pepe1993', 'Pepe ', 'Rodriguez Carrera', '1234', 'pepecarrera@gmail.com','user',NOW()), 
 (NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '1234', 'joshua93@gmail.com','admin',NOW());
 
@@ -131,19 +137,19 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`t
 -- INSERTS `PRODUCTS`
 -- -----------------------------------------------------
 
-INSERT INTO `products` (`id`, `name`, `description`, `moddate`,`place`, `price`, `category`, `user_id`,`created`,`modified`) VALUES 
-(NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, 'Casa y Jardin', NULL,NOW(),NOW()), 
+INSERT INTO `productos` (`id`, `name`, `description`, `moddate`,`place`, `price`, `category`, `user_id`,`created`,`modified`) VALUES 
+(NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, 'Casa y Jardin', 1,NOW(),NOW()), 
 (NULL, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', CURRENT_TIMESTAMP, 'Santander', 550, 'Tecnologia', NULL,NOW(),NOW()), 
-(NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, 'Motor', NULL,NOW(),NOW()), 
-(NULL, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', CURRENT_TIMESTAMP, 'Madrid', 115, 'Moda', NULL,NOW(),NOW()), 
-(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, 'Caza y Pesca', NULL,NOW(),NOW()),
-(NULL, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', CURRENT_TIMESTAMP, 'Alicante', 30, 'Tecnologia', NULL,NOW(),NOW());
+(NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, 'Motor', 1,NOW(),NOW()), 
+(NULL, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', CURRENT_TIMESTAMP, 'Madrid', 115, 'Moda', 2,NOW(),NOW()), 
+(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, 'Caza y Pesca', 2,NOW(),NOW()),
+(NULL, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', CURRENT_TIMESTAMP, 'Alicante', 30, 'Tecnologia', 3,NOW(),NOW());
 
 -- -----------------------------------------------------
 -- INSERTS `CHATS`
 -- -----------------------------------------------------
-
-INSERT INTO `chats` (`id`, `content`, `moddate`, `user_id`, `product_id`) VALUES 
+/*
+INSERT INTO `chats` (`id`, `content`, `moddate`, `user_id`, `producto_id`) VALUES 
 (NULL, 'Debes ..', CURRENT_TIMESTAMP, NULL,'1'), 
 (NULL, 'Hola soy...', CURRENT_TIMESTAMP, NULL,'1'), 
 (NULL, 'Mira estoy en..', CURRENT_TIMESTAMP, NULL,'2'), 
@@ -176,7 +182,7 @@ INSERT INTO `responses_chats` (`id`, `user_id`, `chat_id`) VALUES
 (NULL, NULL, '11'), 
 (NULL, NULL, '12');
 
-
+*/
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -1,8 +1,14 @@
 <?php 
+
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 App::uses('AppModel', 'Model');
 
+
+
 	class User extends AppModel {
+	
+	
+	/*
 
 		public $hasAndBelongsToMany = array(
 	        'VoteResponse' => array(
@@ -12,6 +18,7 @@ App::uses('AppModel', 'Model');
 				'associationForeignKey' => 'response_id'
 	        )
 	    );
+		*/
 /*
 		public $hasMany = array(
 			'UserPosts' => array(
@@ -80,7 +87,14 @@ App::uses('AppModel', 'Model');
 						'rule' => 'isUnique',
 						'message' => 'El correo electrónico ya se encuentra registrado.'					
 					)		
-				)									
+				),
+				'role' => array(
+					'valid' => array(
+					'rule' => array('inList', array('admin', 'user')),
+					'message' => 'Please enter a valid role',
+					'allowEmpty' => false
+					)
+				)
 		);
 		
 		public $hasMany = array(
