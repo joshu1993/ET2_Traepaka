@@ -1,7 +1,6 @@
 <!-- app/View/Users/index.ctp -->
-<div class="users form">
-<h1 style="font-weight: bold; color: red; text-decoration: underline;"> Admin Panel:</h1>
-<h2>Lista de Usuarios</h2>
+
+<h1> Lista de usuarios:</h1>
 <table>
     <thead>
 		<tr>
@@ -21,10 +20,10 @@
 		<?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
 		<?php endif; ?>
 			<td><?php echo $this->Form->checkbox('User.id.'.$user['User']['id']); ?></td>
-			<td><?php echo $this->Html->link( $user['User']['username']  ,   array('action'=>'edit', $user['User']['id']),array('escape' => false) );?></td>
-			<td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
-			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
-			<td style="text-align: center;"><?php echo $user['User']['tipo']; ?></td>
+			<td><?php echo $user['User']['username']; ?></td>
+			<td><?php echo $user['User']['email']; ?></td>
+			<td><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
+			<td><?php echo $user['User']['tipo']; ?></td>
 			<td><?php echo $this->Html->Link('Detalle', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id'])); ?></td>
 			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$user['User']['id']), array('confirm'=>'Eliminar a ' .$user['User']['name'].'?' )); ?></td>
 			</td>
@@ -33,13 +32,16 @@
 		<?php unset($user); ?>
 	</tbody>
 </table>
+
+<table>
 <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
 <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
 <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-</div>				
-
-
-
-
-	
-	
+</table>	
+<table>
+<?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>
+<br/>
+<?php 
+echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+?>
+</table>
