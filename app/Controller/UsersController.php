@@ -19,7 +19,7 @@ App::uses('AppController', 'Controller');
 			
 	    }
 	
-/*
+
 
 		public function ver($id= Null){
 		

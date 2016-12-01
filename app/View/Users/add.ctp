@@ -1,4 +1,3 @@
-
 <!-- app/View/Users/add.ctp -->
 <div class="users form">
 <?php echo $this->Form->create('User'); ?>
@@ -10,7 +9,7 @@
         echo $this->Form->input('password');
 		echo $this->Form->input('email');
         echo $this->Form->input('tipo', array(
-            'options' => array('admin' => 'Admin', 'user' => 'user')
+            'options' => array('admin' => 'Admin', 'user' => 'User')
         ));
     ?>
     </fieldset>
