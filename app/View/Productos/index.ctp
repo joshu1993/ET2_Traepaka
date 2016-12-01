@@ -1,9 +1,6 @@
    <h2>Lista de productos</h2>
    
-   <?php
-	
-		echo $this->Html->link('Crear nueva mesa', array ('controller'=>'productos','action'=>'nuevo'));
-   ?>
+  
    
    <table>
 		<tr>
@@ -18,24 +15,32 @@
 			<td>Editar</td>
 			<td>Eliminar</td>
 		</tr>
-   <?php foreach($productos as $producto){
-		echo "<tr>";
-		echo "<td> $producto['Producto']['name'] </td>";
-		echo "<td> $producto['Producto']['description'] </td>";
-		echo "<td> $producto['Producto']['place'] </td>";
-		echo "<td> $producto['Producto']['price'] </td>";
-		echo "<td> $producto['Producto']['category'] </td>";
-		echo "<td> $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['created']) </td>";
-		echo "<td> $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['modified']) </td>";
-		echo "<td> $this->Html->Link($producto['User']['name'].''.$producto['User']['surname'],array('controller'=> 'users','action'=>'ver' , $producto['User'][''id]))</td>";
-		echo "<td> $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])) </td>";
-		echo "<td> $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$producto['Producto']['id']), array('confirm'=>'Eliminar producto ' .$producto['Producto']['nombre'].'?' ))</td>";
+   <?php foreach($productos as $producto): ?>
+		<tr>
+			
+			<td><?php echo $producto['Producto']['name']; ?></td>
+			<td><?php echo $producto['Producto']['description']; ?></td>
+			<td><?php echo $producto['Producto']['place']; ?></td>
+			<td><?php echo $producto['Producto']['price']; ?></td>
+			<td><?php echo $producto['Producto']['category']; ?></td>
+			<td><?php echo $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['created']); ?></td>
+			<td><?php echo $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['modified']); ?></td>
+			<td><?php echo $this->Html->Link($producto['User']['name'].''.$producto['User']['surname'],array('controller'=> 'users','action'=>'ver' , $producto['User']['id'])); ?></td>
+			<td><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></td>
+			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$producto['Producto']['id']), array('confirm'=>'Eliminar producto ' .$producto['Producto']['name'].'?' )); ?></td>
 		
-		echo "</tr>";
+		</tr>
+		
+	<?php endforeach; ?>
 	
 	
 	
-	}
-	?>
    
    </table>
+   
+    <?php
+	
+		echo $this->Html->link('Crear nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
+   ?>
+   
+   

@@ -1,11 +1,11 @@
 <?php 
-/*
+
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 App::uses('AppModel', 'Model');
-*/
+
 class Producto extends AppModel
  {
- /*
+ 
 	public $belongsTo = array(
 		'User'=>array(
 			'className'=>'User',
@@ -17,7 +17,7 @@ class Producto extends AppModel
 	
 	);
 	
-	*/
+	
 	/*
 	public $validate = array(
 	

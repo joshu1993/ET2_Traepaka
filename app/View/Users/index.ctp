@@ -10,7 +10,7 @@
   </tr>
 	<?php foreach($users as $user): ?>
 		<tr>
-			<td><?php echo $user['User']['id'] ?></td>
+			<td><?php echo $user['User']['id']; ?></td>
 			<td><?php echo $user['User']['name']; ?></td>
 			<td><?php echo $user['User']['surname']; ?></td>
 			<td><?php echo $this->Html->Link('Detalle', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id'])); ?></td>
@@ -23,3 +23,5 @@
 	
 	<?php endforeach; ?>
 	</table>
+	
+	

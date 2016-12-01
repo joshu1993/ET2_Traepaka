@@ -14,14 +14,12 @@ App::uses('AppController', 'Controller');
 	  	public function beforeFilter() {
 	    	parent::beforeFilter();
 			
-	        $this->Auth->allow('index', 'add');
+	        $this->Auth->allow('index', 'add','ver');
 	        //$this->set('current_user', $this->Auth->user());
 			
 	    }
 	
-/*
-=======
->>>>>>> 244cb31b10b89ac63269f71b2202c8fd0125b0b4
+
 		public function ver($id= Null){
 		
 			if (!$id)
@@ -38,7 +36,7 @@ App::uses('AppController', 'Controller');
 			$this-> set('user', $user);
 		}
 		
-	*/	
+
 		/*
 
 		public function login() {
@@ -71,9 +69,12 @@ App::uses('AppController', 'Controller');
 				$this->redirect($this->referer());			
 			}
 		}
-		/*
+		
+		
+		
 		public function eliminar($id)
 		{
+			
 			if($this->request->is('get'))
 			{
 				throw new methodNotAllowedException('INCORRECTO');
@@ -83,9 +84,10 @@ App::uses('AppController', 'Controller');
 				$this->Flash->success('El usuario ha sido eliminado');
 				return $this->redirect(array('action'=>'index'));
 			}
-		}
+		}	
 		
-		*/
+		
+		
 	}
 
 

@@ -1,6 +1,6 @@
 <?php 
 
-//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 App::uses('AppModel', 'Model');
 
 
@@ -99,7 +99,7 @@ App::uses('AppModel', 'Model');
 				)
 		);
 	
-
+*/
 	
 		public $hasMany = array(
 					'Producto'=> array(
@@ -109,8 +109,8 @@ App::uses('AppModel', 'Model');
 						'depend' => true
 					)
 				);
-*/
-/*
+
+
 		public function beforeSave($options = array()) {
 			if(isset($this->data[$this->alias]['password'])) {
 				$passwordHasher = new BlowfishPasswordHasher();
@@ -119,7 +119,7 @@ App::uses('AppModel', 'Model');
 			return true;
 		}
 
-*/
+
 
 
 	}
