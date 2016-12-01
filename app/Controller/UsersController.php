@@ -18,14 +18,7 @@ App::uses('AppController', 'Controller');
 	        //$this->set('current_user', $this->Auth->user());
 			
 	    }
-		
 	
-<<<<<<< HEAD
-		public function index() {
-		
-		//$this->User->recursive=0;
-		$this->set('users', $this->User->find('all'));
-		}
 /*
 =======
 >>>>>>> 244cb31b10b89ac63269f71b2202c8fd0125b0b4
