@@ -1,4 +1,6 @@
 <?php
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -265,4 +267,3 @@
 <script src="js/bootstrap.js" ></script>
 </body>
 </html>
-?>
