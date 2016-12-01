@@ -5,7 +5,7 @@ CREATE USER 'traepakauser'@'localhost' IDENTIFIED BY 'traepakapass';
 GRANT ALL PRIVILEGES ON traepaka_bd.* TO traepakauser@'localhost' IDENTIFIED BY "traepakapass";
 USE traepaka_bd;
 */
-
+DROP DATABASE IF EXISTS `cakephp`;
 CREATE DATABASE cakephp;
 /*CREATE DATABASE ebsxjflv_igd;*/
 
