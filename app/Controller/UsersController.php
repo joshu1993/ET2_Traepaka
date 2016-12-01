@@ -1,4 +1,5 @@
 <?php 
+App::uses('AppController', 'Controller');
 
 	class UsersController extends AppController {
 	
@@ -8,16 +9,17 @@
 	    	parent::beforeFilter();
 			
 	        $this->Auth->allow('index', 'add');
-	        $this->set('current_user', $this->Auth->user());
+	        //$this->set('current_user', $this->Auth->user());
 			
 	    }
 		
 	
 		public function index() {
 		
+		//$this->User->recursive=0;
 		$this->set('users', $this->User->find('all'));
 		}
-
+/*
 		public function ver($id= Null){
 		
 			if (!$id)
@@ -32,7 +34,7 @@
 			$this-> set('user', $user);
 		}
 		
-		
+	*/	
 		/*
 
 		public function login() {
@@ -53,6 +55,7 @@
 		}
 
 		*/
+		
 		public function add() {
 			if($this->request->is('post')) {
 				$this->User->create();
@@ -64,7 +67,7 @@
 				$this->redirect($this->referer());			
 			}
 		}
-		
+		/*
 		public function eliminar($id)
 		{
 			if($this->request->is('get'))
@@ -77,6 +80,8 @@
 				return $this->redirect(array('action'=>'index'));
 			}
 		}
+		
+		*/
 	}
 
 

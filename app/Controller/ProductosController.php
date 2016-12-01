@@ -4,13 +4,13 @@ class ProductosController extends AppController
 {
 
 	public $helpers = array('Html', 'Form', 'Time');
-	public $components = array('Session');
+	//public $components = array('Session');
 	
 	public function index()
 	{
-	$this->set('productos', $this->Producto->find('all'));
+		$this->set('productos', $this->Producto->find('all'));
 	}
-
+/*
 	public function nuevo()
 	{
 		if($this->request->is('post'))
@@ -18,7 +18,7 @@ class ProductosController extends AppController
 			$this->Producto->create();
 			if($this->Producto->save($this->request->data))
 			{
-				$this->Flash->success('El producto ha sido creado'/*, 'default', array('class'=>'success')*/);
+				$this->Flash->success('El producto ha sido creado'/*, 'default', array('class'=>'success'));
 				return $this ->redirect(array('action'=> 'index'));
 			}
 			$this->Flash->error('No se puedo crear mesa');
@@ -26,6 +26,8 @@ class ProductosController extends AppController
 		$users= $this->Producto->User->find('list');
 		$this->set('users',$users);
 	}
+	*/
+	/*
 	
 	public function editar($id=null)
 	{
@@ -44,7 +46,7 @@ class ProductosController extends AppController
 			$this->Producto->id= $id;
 			if($this->Producto->save($this->request->data))
 			{
-				$this->Flash->success('El prodcuto ha sifo modificado'/*, $element= 'default', $params = array('class'=>'success')*/);
+				$this->Flash->success('El prodcuto ha sifo modificado'/*, $element= 'default', $params = array('class'=>'success'));
 				return $this->redirect(array('action'=>'index'));
 			}
 			$this->Flash->error('El registro no pudo ser modificado');
@@ -63,10 +65,12 @@ class ProductosController extends AppController
 		}
 		if($this->Producto->delete($id))
 		{
-			$this->Flash->success('El prodcuto ha sido eliminado'/*, $element= 'default', $params= array('class'=> 'success')*/);
+			$this->Flash->success('El prodcuto ha sido eliminado'/*, $element= 'default', $params= array('class'=> 'success'));
 			return $this->redirect(array('action'=>'index'));
 		}
 	}
+	
+	*/
 }
 
 ?>

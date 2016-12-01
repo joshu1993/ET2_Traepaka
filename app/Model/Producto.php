@@ -5,18 +5,20 @@ App::uses('AppModel', 'Model');
 */
 class Producto extends AppModel
  {
- 
+ /*
 	public $belongsTo = array(
 		'User'=>array(
 			'className'=>'User',
 			'foreignKey'=> 'user_id',
 			'conditions'=>'',
-			'depend' => false,
+			'depend' => false
 		)
 	
 	
 	);
 	
+	*/
+	/*
 	public $validate = array(
 	
 		'nombre'=> array(
@@ -47,9 +49,9 @@ class Producto extends AppModel
 				'notEmpty' => array(
 					'rule'=> 'notEmpty'
 				)
-			),
+			)
 	);
- 
+ */
 	/*
     private $id_producto;
     private $fecha;

@@ -7,18 +7,18 @@
 		<td> Apellido</td>
 		<td> Detalles</td>
   </tr>
-	<?php foreach($users as $user){
-		echo "<tr>";
-		echo "<td> $user['User']['id'] </td>";
-		echo "<td> $user['User']['nombre'] </td>";
-		echo "<td> $user['User']['surname'] </td>";
-		echo "<td> $this->Html->Link('Detalle', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id']))</td>";
-		echo "<td> $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$user['User']['id']), array('confirm'=>'Eliminar a ' .$user['User']['nombre'].'?' ))</td>";
+	<?php foreach($users as $user): ?>
+		<tr>
+			<td><?php echo $user['User']['id'] ?></td>
+			<td><?php echo $user['User']['nombre']; ?></td>
+			<td><?php echo $user['User']['surname']; ?></td>
+			<td><?php echo $this->Html->Link('Detalle', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id'])); ?></td>
+			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$user['User']['id']), array('confirm'=>'Eliminar a ' .$user['User']['nombre'].'?' )); ?></td>
 		
-		echo "</tr>";
+		</tr>
 	
 	
 	
-	}
-	?>
+	
+	<?php endforeach; ?>
 	</table>

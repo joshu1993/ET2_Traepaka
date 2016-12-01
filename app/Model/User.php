@@ -1,6 +1,6 @@
 <?php 
 
-App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 App::uses('AppModel', 'Model');
 
 
@@ -32,6 +32,8 @@ App::uses('AppModel', 'Model');
 			);
 
 */
+
+/*
 
 		public $validate = array(
 
@@ -96,17 +98,19 @@ App::uses('AppModel', 'Model');
 					)
 				)
 		);
-		
+	
+
+	
 		public $hasMany = array(
 					'Producto'=> array(
 						'className'=>'Producto',
 						'foreignKey'=> 'user_id',
 						'conditions'=>'',
-						'depend' => true,
+						'depend' => true
 					)
 				);
-
-
+*/
+/*
 		public function beforeSave($options = array()) {
 			if(isset($this->data[$this->alias]['password'])) {
 				$passwordHasher = new BlowfishPasswordHasher();
@@ -115,7 +119,7 @@ App::uses('AppModel', 'Model');
 			return true;
 		}
 
-
+*/
 
 
 	}

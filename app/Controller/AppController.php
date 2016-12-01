@@ -51,19 +51,23 @@ class AppController extends Controller {
                 'controller' => 'posts',
                 'action' => 'index'
             ),
-            'loginAction' => array("controller"=>"posts", "action"=>"index"),
+            'loginAction' => array(
+				"controller"=>"posts", 
+				"action"=>"index"
+			
+			),
                 
             'authenticate' => array(
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
                 )
-            ),
+            )
         )
     );
     
     public function beforeFilter() {
-        $this->Auth->allow('login', 'logout');
-        $this->set('current_user', $this->Auth->user());
+        $this->Auth->allow('index', 'view');
+       // $this->set('current_user', $this->Auth->user());
     }
 
 
