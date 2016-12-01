@@ -5,5 +5,3 @@ class PostsController extends AppController {
 
 	}
 }
-
-?>
