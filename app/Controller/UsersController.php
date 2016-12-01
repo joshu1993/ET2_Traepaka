@@ -19,7 +19,9 @@ App::uses('AppController', 'Controller');
 			
 	    }
 	
-
+/*
+=======
+>>>>>>> 244cb31b10b89ac63269f71b2202c8fd0125b0b4
 		public function ver($id= Null){
 		
 			if (!$id)
@@ -37,10 +39,14 @@ App::uses('AppController', 'Controller');
 		}
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
 
 >>>>>>> origin/master
+=======
+	*/	
+>>>>>>> parent of f18c406... n
 		/*
 
 		public function login() {

@@ -1,4 +1,4 @@
-        <div class="col-md-2 col-lg-2"> 
+          <div class="col-md-2 col-lg-2"> 
           <div class="panel panel-info margin-panel">
             <div class="panel-heading">
               <h3 class="panel-title"><?php __('Info') ?></h3>
