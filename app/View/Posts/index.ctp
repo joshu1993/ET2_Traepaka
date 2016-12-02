@@ -1,10 +1,19 @@
 <?php
+    echo $this->Html->meta('icon');
+
+    echo $this->Html->css(array('cake.generic','traepaka.css','bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->script(array('jquery','npm','bootstrap.min'));
+
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+  ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
 
- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum scale=1.0, minimum-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0, user-scalable=no">
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -14,255 +23,243 @@
 
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-			<div class="container">
-				<!-- Logo y toggle quedan agrupados para una mejor visualización en dispositivos móviles -->
-				<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegador" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					<div id="logo" >
-						<img src="./imagenes/imagenlogo.png"></img>
-					</div>
-				</div>
-				<!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle-->
-				<div class="collapse navbar-collapse" id="navegador">
-					<ul class="nav navbar-nav">
-						<li><a href="#">Inicio </a></li>
-						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorias <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-							<li><a href="#">Casa y Jardin</a></li>
-							<li><a href="#">Caza y Pesca</a></li>
-							<li><a href="#">Deportes</a></li>
-							<li><a href="#">Mobiliario</a></li>
-							<li><a href="#">Moda</a></li>
-							<li><a href="#">Motor</a></li>
-							<li><a href="#">Tecnologia</a></li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Buscar producto...">
-						</div>
-						<button type="submit" class="btn btn-default">Buscar</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="#">Chats</a></li>
-						<li><a href="#">Productos</a></li>
-						<div id="nombredeusuario" class= "col-sm-2">
-							<button type="submit" class="nombreusuario"><img src="./imagenes/logousuario.png"></img>Ramon</button>
-						</div>
-					</ul>
-    			</div>
-			</div>
-	</nav>
-	</header>
+  <header>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <!-- Logo y toggle quedan agrupados para una mejor visualización en dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegador" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <div id="logo" >
+            <img src="./imagenes/imagenlogo.png"></img>
+          </div>
+        </div>
 
-		<script src="https://use.fontawesome.com/45e03a14ce.js"></script>
-        <div class="main_section">
-           <div class="container">
-              <div class="chat_container">
-                 <div class="col-sm-3 chat_sidebar">
-    	              <div class="row">
-                      <div class="dropdown all_conversation">
-                      <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"    aria-expanded="false">
-                        <i class="fa fa-weixin" aria-hidden="true"></i>
-                        Chats
-                      </button>
-                      </div>
-            <div class="member_list">
-               <ul class="list-unstyled">
-                  <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Jorge García</strong> <strong class="pull-right">
-                           09:45</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">692247522</strong> <span class="badge pull-right"></span>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Edgar Torres</strong> <strong class="pull-right ">
-                           21:52</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">652365411</strong> <span class="badge pull-right">3</span>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_mujer.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Marta Serrano</strong> <strong class="pull-right">
-                           19:34</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">685214797</strong> <span class="badge pull-right">6</span>
-                        </div>
-                     </div>
-                  </li>
-                          <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_mujer.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Verónica Rodríguez</strong> <strong class="pull-right">
-                           16:58</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">678245683</strong> <span class="badge pull-right"></span>
-                        </div>
-                     </div>
-                  </li>
-                          <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Marcos Pérez</strong> <strong class="pull-right">
-                           14:24</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">684288522</strong> <span class="badge pull-right"></span>
-                        </div>
-                     </div>
-                  </li>
-                          <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_mujer.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">María Rey</strong> <strong class="pull-right">
-                           13:31</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">667457217</strong> <span class="badge pull-right"></span>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Pedro Gallego</strong> <strong class="pull-right">
-                           12:12</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">678514523</strong> <span class="badge pull-right"></span>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="left clearfix">
-                     <span class="chat-img pull-left">
-                     <img src="./imagenes/usuario_mujer.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body clearfix">
-                        <div class="header_sec">
-                           <strong class="primary-font">Rocío Molina</strong> <strong class="pull-right">
-                           10:35</strong>
-                        </div>
-                        <div class="contact_sec">
-                           <strong class="primary-font">641256879</strong> <span class="badge pull-right"></span>
-                        </div>
-                     </div>
-                  </li>                 
-               </ul>
-            </div></div>
-         </div>
-
-     <!--Barra_titulo_chat-->
-     <div class="col-sm-9 message_section">
-		 <div class="row">
-		 <div class="new_message_head">
-		 <div class="pull-left"><button> Jorge García</button></div></div>
-     
-     <!--Area de chat-->
-		 
-		 <div class="chat_area">
-		 <ul class="list-unstyled">
-		     <li class="left clearfix">
-                     <span class="chat-img1 pull-left">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body1 clearfix">
-                        <p>Hola Jorge, estoy interesado en la Ducati de tu anuncio y me gustaría que me dieses más información sobre ella</p>
-						            <div class="chat_time pull-right">08:38</div>
-                     </div>
-                  </li>
-				       <li class="left clearfix">
-                     <span class="chat-img1 pull-left">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body1 clearfix">
-                        <p>¿Has tenido algún golpe, o algo que deba saber? Es que me ha extrañado mucho que teniendo 6 años y tan pocos kms la vendas por ese precio..</p>
-    					          <div class="chat_time pull-right">08:39</div>
-                     </div>
-               </li>
-				       <li class="left clearfix admin_chat">
-                     <span class="chat-img1 pull-right">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body1 clearfix">
-                        <p>Hola Ramón. Si, te doy la información que necesitas. </p>
-						         <div class="chat_time pull-left">09:44</div>
-                     </div>
-               </li>
-               <li class="left clearfix admin_chat">
-                     <span class="chat-img1 pull-right">
-                     <img src="./imagenes/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
-                     </span>
-                     <div class="chat-body1 clearfix">
-                        <p>Con la moto la verdad es que no he tenido ningún golpe, su precio tan barato se debe a que necesito el dinero y me urge..</p>
-    					       <div class="chat_time pull-left">09:45</div>
-                     </div>
-               </li>		 
-		    </ul>
-		 </div>
-     <!--Escribir_mensaje-->
-          <div class="message_write">
-    	       <textarea class="form-control" placeholder="Escribe aquí tu mensaje..."></textarea>
-		         <div class="clearfix"></div>
-		         <div class="chat_bottom"><a href="#" class="pull-left upload_btn"><i class="fa fa-cloud-upload" aria-hidden="true"></i> 
-                Adjuntar archivo</a> 
-                <a href="#" class="pull-right btn btn-success"> Enviar</a></div>
-		         </div>
-		      </div>
-       </div> 
+        <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
+      <div class="collapse navbar-collapse" id="navegador">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Inicio</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Casa y Jardín</a></li>
+            <li><a href="#">Caza y Pesca</a></li>
+            <li><a href="#">Deportes</a></li>
+            <li><a href="#">Mobiliario</a></li>
+            <li><a href="#">Moda</a></li>
+            <li><a href="#">Motor</a></li>
+            <li><a href="#">Tecnología</a></li>
+            
+          </ul>
+          </li>
+        </ul>
+        
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar producto...">
       </div>
+      <button type="submit" class="btn btn-default">Buscar</button>
+    </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Chats</a></li>
+        <li><a href="#">Productos</a></li>
+        
+        <div id="iniciar_sesion" class= "col-sm-2">
+          <button type="submit" class="iniciosesion">Iniciar Sesión</button>
+        </div>  
+        
+      </ul>
     </div>
   </div>
-</section>
+</nav>
+  </header>
 
-<footer>
-   <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
-</footer>
-
+  <section>
+    <div id="cuadroscentro" type="submit" class="row">
+      <div id="cuadroprimero" class= "col-sm-4" >
+        <div id="palabracuadro1" >
+        <h4>Compra y vende en Traepaká</h4>
+        <h5>Sé el primero en enterarte de lo que venden a tu alrededor y consigue dinero vendiendo aquello que ya no utilices. ¡Reciclar te reportará dinero!</h5>
+        </div>
+      </div>
+      <div id="cuadrosegundo" class= "col-sm-4" >
+        <div id="palabracuadro" >
+        <h4>Cómodo y sencillo</h4> 
+        </div>
+        <h5>Busca de una manera muy simple los productos que te interesan y de la misma forma anuncia los que desees vender.</h5>
+      </div>
+      <div id="cuadrotercero" class= "col-sm-4" >
+        <div id="palabracuadro" >
+        <h4> Pago seguro €€</h4>
+        </div>
+        <h5>Realiza los pagos de manera segura a través de nuestra plataforma y recibe también los cobros de las transacciones de forma protegida.</h5>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id="cuadroproductos" type="submit" class="row">
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/futbolin.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Futbolin Presas</h1>
+        <h2>650€ Madrid</h2>
+        </div>
+        <h3>Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button type="submit"class="verdetalles"> Ver detalles</button>
+        <button type="submit" class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/guantes.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Guantes boxeo</h1>
+        <h2>20€ Leon</h2>
+        </div>
+        <h3>Guantes de boxeo de la marca Everlast, talla 14 oz. Se encuentran nuevos, no se le ha llegado a dar uso. Incluyo bolsa de transporte de los mismos.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/iphone.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Iphone 6S</h1>
+        <h2>550€ Santander</h2>
+        </div>
+        <h3>Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/moto.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Moto Ducati</h1>
+        <h2>4.600€ Burgos</h2>
+        </div>
+        <h3>Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso,solo tiene 15.738kms. Revisiones anuales hechas.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/bolso.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Bolso MK</h1>
+        <h2>115€ Madrid</h2>
+        </div>
+        <h3>Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero">          Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/escopeta.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Escopeta</h1>
+        <h2>350€ Lugo</h2>
+        </div>
+        <h3>Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/sofa.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Sofa Cheslong</h1>
+        <h2>225€ Bilbao</h2>
+        </div>
+        <h3>Sofa Cheslong en color marron muy confortable y con asientos extensibles. Comprado en 2015, se mantiene en perfecto estado. Medidas: 223x95x75. Precio en ikea 980€. No envío.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/tractorcortacesped.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Cortacesped</h1>
+        <h2>1.750€ Murcia</h2>
+        </div>
+        <h3>Tractor cortacesped con chasis de acero y motor de 4 tiempos OHV HECHT, ajuste central de la altura de corte. La zona recomendada 3000-4000 m2. No negocio precio.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+      <div id="cuadroanuncio" class= "col-sm-4">
+        <div id="imagenproducto">
+        <img src="./imagenes/mando.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1>Mando PS4</h1>
+        <h2>30€ Alicante</h2>
+        </div>
+        <h3>Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.</h3>
+        <div id="botones" class="col-sm-6" >
+        <button class="verdetalles"> Ver detalles</button>
+        <button class="loquiero"> Lo quiero!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id="paginasbuscar" class="row">
+      <nav aria-label="..."><ul class="pagination">...</ul></nav>
+        <ul class="pagination">
+          <li class="disabled">
+            <span>
+              <span aria-hidden="true">&laquo;</span>
+            </span>
+          </li>
+          <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+          <li> <span>2 <span class="sr-only">(current)</span></span></li>
+          <li> <span>3 <span class="sr-only">(current)</span></span></li>
+          <li> <span>4 <span class="sr-only">(current)</span></span></li>
+          <li> <span>5 <span class="sr-only">(current)</span></span></li>
+          <li> <span>6 <span class="sr-only">(current)</span></span></li>
+          <li> <span>7 <span class="sr-only">(current)</span></span></li>
+          <li> <span>8 <span class="sr-only">(current)</span></span></li>
+          <li> <span>9 <span class="sr-only">(current)</span></span></li>
+          </ul>
+      </nav>
+    </div>
+  </section>
+  
+  
+    <footer>
+     <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
+  </footer>
+  
 <script src="js/jquery.js" ></script>
 <script src="js/bootstrap.js" ></script>
 </body>
 </html>
-?>
