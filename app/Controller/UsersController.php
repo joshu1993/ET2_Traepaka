@@ -104,7 +104,26 @@ App::uses('AppController', 'Controller');
 				$this->Flash->success('El usuario ha sido eliminado');
 				return $this->redirect(array('action'=>'index'));
 			}
-		}	
+		}
+
+/*		public function delete($id = null) {
+        // Prior to 2.5 use
+        // $this->request->onlyAllow('post');
+
+        $this->request->allowMethod('post');
+
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->User->delete()) {
+            $this->Session->setFlash(__('User deleted'));
+            return $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('User was not deleted'));
+        return $this->redirect(array('action' => 'index'));
+    }
+*/
 		
 	}
 
