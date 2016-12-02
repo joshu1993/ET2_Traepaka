@@ -10,6 +10,7 @@
 			<th><?php echo $this->Paginator->sort('tipo','Tipo');?></th>
 			<th><?php echo $this->Paginator->sort('created', 'Creado');?></th>
 			<th><?php echo $this->Paginator->sort('ver','Ver');?></th></th>
+			<th><?php echo $this->Paginator->sort('edit','Modificar');?></th></th>
 			<th><?php echo $this->Paginator->sort('eliminar','Eliminar');?></th>
 		</tr>
 	</thead>
@@ -25,7 +26,8 @@
 			<td><?php echo $user['User']['tipo']; ?></td>
 			<td><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
 			<td><?php echo $this->Html->Link('+info', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id'])); ?></td>
-			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$user['User']['id']), array('confirm'=>'Eliminar a ' .$user['User']['name'].'?' )); ?></td>
+			<td><?php echo $this->Html->Link('edit', array('controller'=> 'users', 'action'=> 'edit',$user['User']['id'])); ?></td>
+			<td><?php echo $this->Form->postLink('eliminar', array('action'=> 'eliminar',$user['User']['id']), array('confirm'=>'Eliminar a ' .$user['User']['name'].'?' )); ?></td>
 			</td>
 		</tr>
 		<?php endforeach; ?>
