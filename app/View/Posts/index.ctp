@@ -35,7 +35,7 @@
               <span class="icon-bar"></span>
             </button>
           <div id="logo" >
-            <img src="./imagenes/imagenlogo.png"></img>
+          <img src="/ET2_Traepaka/app/webroot/img/imagenlogo.png">
           </div>
         </div>
 
@@ -104,7 +104,7 @@
     <div id="cuadroproductos" type="submit" class="row">
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/futbolin.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/futbolin.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Futbolin Presas</h1>
@@ -118,7 +118,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/guantes.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/guantes.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Guantes boxeo</h1>
@@ -133,7 +133,7 @@
       
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/iphone.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/iphone.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Iphone 6S</h1>
@@ -147,7 +147,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/moto.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/moto.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Moto Ducati</h1>
@@ -161,7 +161,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/bolso.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img//bolso.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Bolso MK</h1>
@@ -175,7 +175,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/escopeta.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/escopeta.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Escopeta</h1>
@@ -189,7 +189,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/sofa.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/sofa.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Sofa Cheslong</h1>
@@ -203,7 +203,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/tractorcortacesped.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/tractorcortacesped.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Cortacesped</h1>
@@ -217,7 +217,7 @@
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
-        <img src="./imagenes/mando.jpg"></img>
+        <img src="/ET2_Traepaka/app/webroot/img/mando.jpg"></img>
         </div>
         <div id="nombreProducto" >
         <h1>Mando PS4</h1>
