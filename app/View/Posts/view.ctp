@@ -42,36 +42,35 @@
         <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Inicio</a></li>
+          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?>>Inicio</a></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Casa y Jardín</a></li>
-            <li><a href="#">Caza y Pesca</a></li>
-            <li><a href="#">Deportes</a></li>
-            <li><a href="#">Mobiliario</a></li>
-            <li><a href="#">Moda</a></li>
-            <li><a href="#">Motor</a></li>
-            <li><a href="#">Tecnología</a></li>
-            
+            <li><a>Casa y Jardín</a></li>
+            <li><a>Caza y Pesca</a></li>
+            <li><a>Deportes</a></li>
+            <li><a>Mobiliario</a></li>
+            <li><a>Moda</a></li>
+            <li><a>Motor</a></li>
+            <li><a>Tecnología</a></li>
           </ul>
+          </li>  
+          <li> 
+            <form class="navbar-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Buscar producto...">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+          </li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
+          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
+          <li>
+          <div id="iniciar_sesion" class= "col-sm-2">
+          <button type="submit" class="iniciosesion">Iniciar Sesión</button>
+          </div> 
           </li>
         </ul>
-        
-    <form class="navbar-form navbar-left">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Buscar producto...">
-      </div>
-      <button type="submit" class="btn btn-default">Buscar</button>
-    </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Chats</a></li>
-        <li><a href="#">Productos</a></li>
-        
-        <div id="iniciar_sesion" class= "col-sm-2">
-          <button type="submit" class="iniciosesion">Iniciar Sesión</button>
-        </div>  
-        
       </ul>
     </div>
   </div>
