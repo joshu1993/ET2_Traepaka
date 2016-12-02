@@ -7,8 +7,8 @@
 			<th><?php echo $this->Form->checkbox('all', array('name' => 'CheckAll',  'id' => 'CheckAll')); ?></th>
 			<th><?php echo $this->Paginator->sort('username', 'Usuario');?>  </th>
 			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
-			<th><?php echo $this->Paginator->sort('created', 'Creado');?></th>
 			<th><?php echo $this->Paginator->sort('tipo','Tipo');?></th>
+			<th><?php echo $this->Paginator->sort('created', 'Creado');?></th>
 			<th><?php echo $this->Paginator->sort('ver','Ver');?></th></th>
 			<th><?php echo $this->Paginator->sort('eliminar','Eliminar');?></th>
 		</tr>
@@ -22,9 +22,9 @@
 			<td><?php echo $this->Form->checkbox('User.id.'.$user['User']['id']); ?></td>
 			<td><?php echo $user['User']['username']; ?></td>
 			<td><?php echo $user['User']['email']; ?></td>
-			<td><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
 			<td><?php echo $user['User']['tipo']; ?></td>
-			<td><?php echo $this->Html->Link('Detalle', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id'])); ?></td>
+			<td><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
+			<td><?php echo $this->Html->Link('+info', array('controller'=> 'users', 'action'=> 'ver',$user['User']['id'])); ?></td>
 			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$user['User']['id']), array('confirm'=>'Eliminar a ' .$user['User']['name'].'?' )); ?></td>
 			</td>
 		</tr>
