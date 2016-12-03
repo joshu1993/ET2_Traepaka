@@ -77,53 +77,65 @@
   </div>
 </nav>
   </header>
-  
-
-
-  <h1>Lista de productos</h1>
    
-  
-   
-   <table>
-		<tr>
-			<td>Nombre</td>
-			<td>Descripcion</td>
-			<td>Imagen</td>
-			<td>Lugar</td>
-			<td>Precio</td>
-			<td>Creado</td>
-			<td>Modificado</td>
-			<td>Anunciante</td>
-			<td>Editar</td>
-			<td>Eliminar</td>
-		</tr>
-   <?php foreach($productos as $producto): ?>
+    <section>
+    <div id="cuadroproductos" type="submit" class="row">
+      <div id="cuadroanuncio" class= "col-sm-4">
+	  <?php foreach($productos as $producto): ?>
     
-		<tr>
-			
-			<td><?php echo $producto['Producto']['name']; ?></td>
-			<td><?php echo $producto['Producto']['description']; ?></td>
-			<td><?php echo $producto['Producto']['place']; ?></td>
-			<td><?php echo $producto['Producto']['price']; ?></td>
-			<td><?php echo $producto['Producto']['category']; ?></td>
-			<td><?php echo $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['created']); ?></td>
-			<td><?php echo $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['modified']); ?></td>
-			<td><?php echo $this->Html->Link($producto['User']['name'].''.$producto['User']['surname'],array('controller'=> 'users','action'=>'ver' , $producto['User']['id'])); ?></td>
-			<td><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></td>
-			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></td>
+        <div id="imagenproducto">
+        <img src="/ET2_Traepaka/app/webroot/img/futbolin.jpg"></img>
+        </div>
+        <div id="nombreProducto" >
+        <h1><?php echo $producto['Producto']['name']; ?></h1>
+        <h2><?php echo $producto['Producto']['place']; ?></h2>
+		<h2><?php echo $producto['Producto']['price']; ?></h2>
+        </div>
+        <h3><?php echo $producto['Producto']['description']; ?></h3>
+        <div id="botones" class="col-sm-6" >
+        <button type="submit"class="verdetalles"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></button>
+        <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
+        </div>
 		
-		</tr>
-		
-	<?php endforeach; ?>
-	
-	
-	
-   
-   </table>
-   
-    <?php
+		<?php endforeach; ?>
+		<?php
 	echo $this->Html->link('Crear nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
     ?>
-   </table>
+      </div>
+     
+    </div>
+  </section>
+  <section>
+    <div id="paginasbuscar" class="row">
+      <nav aria-label="..."><ul class="pagination">...</ul></nav>
+        <ul class="pagination">
+          <li class="disabled">
+            <span>
+              <span aria-hidden="true">&laquo;</span>
+            </span>
+          </li>
+          <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+          <li> <span>2 <span class="sr-only">(current)</span></span></li>
+          <li> <span>3 <span class="sr-only">(current)</span></span></li>
+          <li> <span>4 <span class="sr-only">(current)</span></span></li>
+          <li> <span>5 <span class="sr-only">(current)</span></span></li>
+          <li> <span>6 <span class="sr-only">(current)</span></span></li>
+          <li> <span>7 <span class="sr-only">(current)</span></span></li>
+          <li> <span>8 <span class="sr-only">(current)</span></span></li>
+          <li> <span>9 <span class="sr-only">(current)</span></span></li>
+          </ul>
+      </nav>
+    </div>
+  </section>
+  
+  
+    <footer>
+     <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
+  </footer>
+  
+<script src="js/jquery.js" ></script>
+<script src="js/bootstrap.js" ></script>
+</body>
+</html>
 
  
