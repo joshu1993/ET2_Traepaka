@@ -92,17 +92,17 @@ App::uses('AppController', 'Controller');
 		
 		
 		
-		public function eliminar($id = null)
+		public function eliminar($id)
 		{
 			
-			if($this->request->is('get'))
+			if(!$this->request->is('post'))
 			{
 				throw new methodNotAllowedException('INCORRECTO');
 			}
 			if($this->User->eliminar($id))
 			{
-				$this->Flash->success('El usuario ha sido eliminado');
-				return $this->redirect(array('action'=>'index'));
+				$this->Flash->success('El usuario con id:' . $id . 'ha sido eliminado.');
+				$this->redirect(array('action' => 'index'));
 			}
 		}
 

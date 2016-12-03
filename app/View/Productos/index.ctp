@@ -27,7 +27,7 @@
 			<td><?php echo $this->Time->format('d-m-Y ; h:i A', $producto['Producto']['modified']); ?></td>
 			<td><?php echo $this->Html->Link($producto['User']['name'].''.$producto['User']['surname'],array('controller'=> 'users','action'=>'ver' , $producto['User']['id'])); ?></td>
 			<td><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></td>
-			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar',$producto['Producto']['id']), array('confirm'=>'Eliminar producto ' .$producto['Producto']['name'].'?' )); ?></td>
+			<td><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></td>
 		
 		</tr>
 		

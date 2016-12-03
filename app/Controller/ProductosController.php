@@ -74,8 +74,8 @@ class ProductosController extends AppController
 		}
 		if($this->Producto->delete($id))
 		{
-			$this->Flash->success('El prodcuto ha sido eliminado');
-			return $this->redirect(array('action'=>'index'));
+			$this->Flash->success('El prodcuto con id' . $id . 'ha sido eliminado');
+			$this->redirect(array('action'=>'index'));
 		}
 	}
 	
