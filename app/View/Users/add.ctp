@@ -1,4 +1,3 @@
-
 <?php
     echo $this->Html->meta('icon');
 
@@ -43,7 +42,7 @@
         <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
-          <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
+          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?>>Inicio</a></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -64,9 +63,8 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
           </li>
-          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
-           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
-          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
+          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
           <li>
           <div id="iniciar_sesion" class= "col-sm-2">
           <button type="submit" class="iniciosesion">Iniciar Sesión</button>
@@ -78,6 +76,7 @@
   </div>
 </nav>
   </header>
+
 
 <!-- app/View/Users/add.ctp -->
 <?php echo $this->Form->create('User'); ?>
@@ -97,3 +96,4 @@
 <table>
 <?php echo $this->Html->link('Volver lista de usuarios',array('controller'=>'users','action'=>'index'));?>
 </table>
+</body>

@@ -11,11 +11,12 @@
 			<td>Categoria</td>
 			<td>Creado</td>
 			<td>Modificado</td>
-			<td>Responsable</td>
+			<td>Anunciante</td>
 			<td>Editar</td>
 			<td>Eliminar</td>
 		</tr>
    <?php foreach($productos as $producto): ?>
+    
 		<tr>
 			
 			<td><?php echo $producto['Producto']['name']; ?></td>
@@ -39,8 +40,8 @@
    </table>
    
     <?php
-	
-		echo $this->Html->link('Crear nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
-   ?>
-   
-   
+	echo $this->Html->link('Crear nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
+    ?>
+   </table>
+
+ 

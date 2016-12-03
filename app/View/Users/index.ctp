@@ -1,4 +1,3 @@
-
 <?php
     echo $this->Html->meta('icon');
 
@@ -43,7 +42,7 @@
         <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
-          <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
+          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?>>Inicio</a></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -56,10 +55,16 @@
             <li><a>Tecnología</a></li>
           </ul>
           </li>  
-         
-          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
-           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
-          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
+          <li> 
+            <form class="navbar-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Buscar producto...">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+          </li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
+          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
           <li>
           <div id="iniciar_sesion" class= "col-sm-2">
           <button type="submit" class="iniciosesion">Iniciar Sesión</button>
@@ -71,6 +76,7 @@
   </div>
 </nav>
   </header>
+
 
 
 <!-- app/View/Users/index.ctp -->
@@ -122,3 +128,4 @@
 echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
 ?>
 </table>
+</body>
