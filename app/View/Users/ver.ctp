@@ -101,7 +101,7 @@
 
 <h3>Productos Usuario:</h3>
 
-<?php if(empty($user['Producto'])): ?>
+<?php if(empty($user['Producto'])): >?
 	
 	<p> No tiene productos asociados </p>
 	

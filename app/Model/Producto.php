@@ -6,6 +6,13 @@ App::uses('AppModel', 'Model');
 class Producto extends AppModel
  {
  
+    var $name = 'Image';
+    var $actsAs = array(
+        'MeioUploadBehavior' => array('filename')
+		);
+		
+		
+ 
 	public $belongsTo = array(
 		'User'=>array(
 			'className'=>'User',
@@ -18,7 +25,6 @@ class Producto extends AppModel
 	);
 	
 	
-	/*
 	public $validate = array(
 	
 		'nombre'=> array(
@@ -51,7 +57,7 @@ class Producto extends AppModel
 				)
 			)
 	);
- */
+ 
 	/*
     private $id_producto;
     private $fecha;

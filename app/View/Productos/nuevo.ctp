@@ -3,11 +3,14 @@
 
 <table>
 
-<?php echo $this->Form->create('Producto'); ?>
+<?php echo $this->Form->create('Producto', array('type' => 'file')); ?>
     <fieldset>
         <legend><?php echo ('Crear Producto'); ?></legend>
-        <?php echo $this->Form->input('name');
+        <?php
+		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('rows'=>3));
+		echo $this->Form->input('imagen',array('type' => 'file'));
+		echo $this->Form->input('dir',array('type' => 'hidden'));
 		echo $this->Form->input('place');
         echo $this->Form->input('price');
 		echo $this->Form->input('category_id');

@@ -58,6 +58,19 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `images` (
+     `id` int(8) unsigned NOT NULL auto_increment,
+	 `filename` varchar(255) default NULL,
+     `dir` varchar(255) default NULL,
+     `mimetype` varchar(255) NULL,
+	 `filesize` int(11) unsigned default NULL,
+     `created` datetime default NULL,
+     `modified` datetime default NULL,
+     PRIMARY KEY  (`id`)
+  ) 
+  ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
 /*CREATE INDEX `fk_Producto_Usuario1_idx` ON `products` (`User_id` ASC);*/
 
 -- -----------------------------------------------------
