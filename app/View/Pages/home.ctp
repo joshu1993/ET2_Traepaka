@@ -1,228 +1,255 @@
-<?php
-/**
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Pages
- * @since         CakePHP(tm) v 0.10.0.1076
- */
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
 
-if (!Configure::read('debug')):
-	throw new NotFoundException();
-endif;
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0, user-scalable=no">
 
-App::uses('Debugger', 'Utility');
-?>
-<h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
-<p>
-	<?php echo $this->Html->link(__d('cake_dev', 'Read the changelog'), 'http://cakephp.org/changelogs/' . Configure::version()); ?>
-</p>
-<?php
-if (Configure::read('debug') > 0):
-	Debugger::checkSecurityKeys();
-endif;
-?>
-<?php if (file_exists(WWW_ROOT . 'css' . DS . 'cake.generic.css')): ?>
-	<p id="url-rewriting-warning" style="background-color:#e32; color:#fff;">
-		<?php echo __d('cake_dev', 'URL rewriting is not properly configured on your server.'); ?>
-		1) <a target="_blank" href="http://book.cakephp.org/2.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-		2) <a target="_blank" href="http://book.cakephp.org/2.0/en/development/configuration.html#cakephp-core-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
-	</p>
-<?php endif; ?>
-<p>
-<?php
-if (version_compare(PHP_VERSION, '5.2.8', '>=')):
-	echo '<span class="notice success">';
-		echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.');
-	echo '</span>';
-else:
-	echo '<span class="notice">';
-		echo __d('cake_dev', 'Your version of PHP is too low. You need PHP 5.2.8 or higher to use CakePHP.');
-	echo '</span>';
-endif;
-?>
-</p>
-<p>
-	<?php
-	if (is_writable(TMP)):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'Your tmp directory is writable.');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your tmp directory is NOT writable.');
-		echo '</span>';
-	endif;
-	?>
-</p>
-<p>
-	<?php
-	$settings = Cache::settings();
-	if (!empty($settings)):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'The %s is being used for core caching. To change the config edit %s', '<em>' . $settings['engine'] . 'Engine</em>', 'APP/Config/core.php');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your cache is NOT working. Please check the settings in %s', 'APP/Config/core.php');
-		echo '</span>';
-	endif;
-	?>
-</p>
-<p>
-	<?php
-	$filePresent = null;
-	if (file_exists(APP . 'Config' . DS . 'database.php')):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'Your database configuration file is present.');
-			$filePresent = true;
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your database configuration file is NOT present.');
-			echo '<br/>';
-			echo __d('cake_dev', 'Rename %s to %s', 'APP/Config/database.php.default', 'APP/Config/database.php');
-		echo '</span>';
-	endif;
-	?>
-</p>
-<?php
-if (isset($filePresent)):
-	App::uses('ConnectionManager', 'Model');
-	try {
-		$connected = ConnectionManager::getDataSource('default');
-	} catch (Exception $connectionError) {
-		$connected = false;
-		$errorMsg = $connectionError->getMessage();
-		if (method_exists($connectionError, 'getAttributes')):
-			$attributes = $connectionError->getAttributes();
-			if (isset($errorMsg['message'])):
-				$errorMsg .= '<br />' . $attributes['message'];
-			endif;
-		endif;
-	}
-	?>
-	<p>
-		<?php
-			if ($connected && $connected->isConnected()):
-				echo '<span class="notice success">';
-					echo __d('cake_dev', 'CakePHP is able to connect to the database.');
-				echo '</span>';
-			else:
-				echo '<span class="notice">';
-					echo __d('cake_dev', 'CakePHP is NOT able to connect to the database.');
-					echo '<br /><br />';
-					echo $errorMsg;
-				echo '</span>';
-			endif;
-		?>
-	</p>
-<?php
-endif;
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+ <link rel="stylesheet" href="css/traepaka.css"></link>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <title>Traepaká</title>
 
-App::uses('Validation', 'Utility');
-if (!Validation::alphaNumeric('cakephp')):
-	echo '<p><span class="notice">';
-		echo __d('cake_dev', 'PCRE has not been compiled with Unicode support.');
-		echo '<br/>';
-		echo __d('cake_dev', 'Recompile PCRE with Unicode support by adding <code>--enable-unicode-properties</code> when configuring');
-	echo '</span></p>';
-endif;
-?>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="container">
+				<!-- Logo y toggle quedan agrupados para una mejor visualización en dispositivos móviles -->
+				<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegador" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					<div id="logo" >
+						<img src="./imagenes/imagenlogo.png"></img>
+					</div>
+				</div>
 
-<p>
-	<?php
-	if (CakePlugin::loaded('DebugKit')):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'DebugKit plugin is present');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'DebugKit is not installed. It will help you inspect and debug different aspects of your application.');
-			echo '<br/>';
-			echo __d('cake_dev', 'You can install it from %s', $this->Html->link('GitHub', 'https://github.com/cakephp/debug_kit/tree/2.2'));
-		echo '</span>';
-	endif;
-	?>
-</p>
+				<!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
+			<div class="collapse navbar-collapse" id="navegador">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Inicio</a></li>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Casa y Jardín</a></li>
+						<li><a href="#">Caza y Pesca</a></li>
+						<li><a href="#">Deportes</a></li>
+						<li><a href="#">Mobiliario</a></li>
+						<li><a href="#">Moda</a></li>
+						<li><a href="#">Motor</a></li>
+						<li><a href="#">Tecnología</a></li>
+						
+					</ul>
+					</li>
+				</ul>
+				
+		<form class="navbar-form navbar-left">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Buscar producto...">
+			</div>
+			<button type="submit" class="btn btn-default">Buscar</button>
+		</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Chats</a></li>
+				<li><a href="#">Productos</a></li>
+				
+				<div id="iniciar_sesion" class= "col-sm-2">
+					<button type="submit" class="iniciosesion">Iniciar Sesión</button>
+				</div>	
+				
+			</ul>
+    </div>
+  </div>
+</nav>
+	</header>
 
-<h3><?php echo __d('cake_dev', 'Editing this Page'); ?></h3>
-<p>
-<?php
-echo __d('cake_dev', 'To change the content of this page, edit: %s.<br />
-To change its layout, edit: %s.<br />
-You can also add some CSS styles for your pages at: %s.',
-	'APP/View/Pages/home.ctp', 'APP/View/Layouts/default.ctp', 'APP/webroot/css');
-?>
-</p>
-
-<h3><?php echo __d('cake_dev', 'Getting Started'); ?></h3>
-<p>
-	<?php
-	echo $this->Html->link(
-		sprintf('<strong>%s</strong> %s', __d('cake_dev', 'New'), __d('cake_dev', 'CakePHP 2.0 Docs')),
-		'http://book.cakephp.org/2.0/en/',
-		array('target' => '_blank', 'escape' => false)
-	);
-	?>
-</p>
-<p>
-	<?php
-	echo $this->Html->link(
-		__d('cake_dev', 'The 15 min Blog Tutorial'),
-		'http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html',
-		array('target' => '_blank', 'escape' => false)
-	);
-	?>
-</p>
-
-<h3><?php echo __d('cake_dev', 'Official Plugins'); ?></h3>
-<p>
-<ul>
-	<li>
-		<?php echo $this->Html->link('DebugKit', 'https://github.com/cakephp/debug_kit/tree/2.2') ?>:
-		<?php echo __d('cake_dev', 'provides a debugging toolbar and enhanced debugging tools for CakePHP applications.'); ?>
-	</li>
-	<li>
-		<?php echo $this->Html->link('Localized', 'https://github.com/cakephp/localized') ?>:
-		<?php echo __d('cake_dev', 'contains various localized validation classes and translations for specific countries'); ?>
-	</li>
-</ul>
-</p>
-
-<h3><?php echo __d('cake_dev', 'More about CakePHP'); ?></h3>
-<p>
-<?php echo __d('cake_dev', 'CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.'); ?>
-</p>
-<p>
-<?php echo __d('cake_dev', 'Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.'); ?>
-</p>
-
-<ul>
-	<li><a href="http://cakephp.org">CakePHP</a>
-	<ul><li><?php echo __d('cake_dev', 'The Rapid Development Framework'); ?></li></ul></li>
-	<li><a href="http://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Your Rapid Development Cookbook'); ?></li></ul></li>
-	<li><a href="http://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Quick API Reference'); ?></li></ul></li>
-	<li><a href="http://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Everything CakePHP'); ?></li></ul></li>
-	<li><a href="http://plugins.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Plugins'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'A comprehensive list of all CakePHP plugins created by the community'); ?></li></ul></li>
-	<li><a href="http://community.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Community Center'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Everything related to the CakePHP community in one place'); ?></li></ul></li>
-	<li><a href="https://groups.google.com/group/cake-php"><?php echo __d('cake_dev', 'CakePHP Google Group'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Community mailing list'); ?></li></ul></li>
-	<li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-	<ul><li><?php echo __d('cake_dev', 'Live chat about CakePHP'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/"><?php echo __d('cake_dev', 'CakePHP Code'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Find the CakePHP code on GitHub and contribute to the framework'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/cakephp/issues"><?php echo __d('cake_dev', 'CakePHP Issues'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'CakePHP Issues'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/cakephp/wiki#roadmaps"><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?></li></ul></li>
-	<li><a href="http://training.cakephp.org"><?php echo __d('cake_dev', 'Training'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Join a live session and get skilled with the framework'); ?></li></ul></li>
-	<li><a href="http://cakefest.org"><?php echo __d('cake_dev', 'CakeFest'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Don\'t miss our annual CakePHP conference'); ?></li></ul></li>
-	<li><a href="http://cakefoundation.org"><?php echo __d('cake_dev', 'Cake Software Foundation'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Promoting development related to CakePHP'); ?></li></ul></li>
-</ul>
+	<section>
+		<div id="cuadroscentro" type="submit" class="row">
+			<div id="cuadroprimero" class= "col-sm-4" >
+				<div id="palabracuadro1" >
+				<h4>Compra y vende en Traepaká</h4>
+				<h5>Sé el primero en enterarte de lo que venden a tu alrededor y consigue dinero vendiendo aquello que ya no utilices. ¡Reciclar te reportará dinero!</h5>
+				</div>
+			</div>
+			<div id="cuadrosegundo" class= "col-sm-4" >
+				<div id="palabracuadro" >
+				<h4>Cómodo y sencillo</h4> 
+				</div>
+				<h5>Busca de una manera muy simple los productos que te interesan y de la misma forma anuncia los que desees vender.</h5>
+			</div>
+			<div id="cuadrotercero" class= "col-sm-4" >
+				<div id="palabracuadro" >
+				<h4> Pago seguro €€</h4>
+				</div>
+				<h5>Realiza los pagos de manera segura a través de nuestra plataforma y recibe también los cobros de las transacciones de forma protegida.</h5>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div id="cuadroproductos" type="submit" class="row">
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/futbolin.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Futbolin Presas</h1>
+				<h2>650€ Madrid</h2>
+				</div>
+				<h3>Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button type="submit"class="verdetalles"> Ver detalles</button>
+				<button type="submit" class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/guantes.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Guantes boxeo</h1>
+				<h2>20€ Leon</h2>
+				</div>
+				<h3>Guantes de boxeo de la marca Everlast, talla 14 oz. Se encuentran nuevos, no se le ha llegado a dar uso. Incluyo bolsa de transporte de los mismos.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/iphone.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Iphone 6S</h1>
+				<h2>550€ Santander</h2>
+				</div>
+				<h3>Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/moto.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Moto Ducati</h1>
+				<h2>4.600€ Burgos</h2>
+				</div>
+				<h3>Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso,solo tiene 15.738kms. Revisiones anuales hechas.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/bolso.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Bolso MK</h1>
+				<h2>115€ Madrid</h2>
+				</div>
+				<h3>Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero">          Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/escopeta.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Escopeta</h1>
+				<h2>350€ Lugo</h2>
+				</div>
+				<h3>Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/sofa.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Sofa Cheslong</h1>
+				<h2>225€ Bilbao</h2>
+				</div>
+				<h3>Sofa Cheslong en color marron muy confortable y con asientos extensibles. Comprado en 2015, se mantiene en perfecto estado. Medidas: 223x95x75. Precio en ikea 980€. No envío.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/tractorcortacesped.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Cortacesped</h1>
+				<h2>1.750€ Murcia</h2>
+				</div>
+				<h3>Tractor cortacesped con chasis de acero y motor de 4 tiempos OHV HECHT, ajuste central de la altura de corte. La zona recomendada 3000-4000 m2. No negocio precio.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+			<div id="cuadroanuncio" class= "col-sm-4">
+				<div id="imagenproducto">
+				<img src="./imagenes/mando.jpg"></img>
+				</div>
+				<div id="nombreProducto" >
+				<h1>Mando PS4</h1>
+				<h2>30€ Alicante</h2>
+				</div>
+				<h3>Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.</h3>
+				<div id="botones" class="col-sm-6" >
+				<button class="verdetalles"> Ver detalles</button>
+				<button class="loquiero"> Lo quiero!</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div id="paginasbuscar" class="row">
+			<nav aria-label="..."><ul class="pagination">...</ul></nav>
+				<ul class="pagination">
+					<li class="disabled">
+						<span>
+							<span aria-hidden="true">&laquo;</span>
+						</span>
+					</li>
+					<li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+					<li> <span>2 <span class="sr-only">(current)</span></span></li>
+					<li> <span>3 <span class="sr-only">(current)</span></span></li>
+					<li> <span>4 <span class="sr-only">(current)</span></span></li>
+					<li> <span>5 <span class="sr-only">(current)</span></span></li>
+					<li> <span>6 <span class="sr-only">(current)</span></span></li>
+					<li> <span>7 <span class="sr-only">(current)</span></span></li>
+					<li> <span>8 <span class="sr-only">(current)</span></span></li>
+					<li> <span>9 <span class="sr-only">(current)</span></span></li>
+					</ul>
+			</nav>
+		</div>
+	</section>
+	
+	
+    <footer>
+	   <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
+	</footer>
+	
+<script src="js/jquery.js" ></script>
+<script src="js/bootstrap.js" ></script>
+</body>
+</html>

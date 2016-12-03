@@ -1,6 +1,6 @@
 
 <!-- app/View/Productos/nuevo.ctp -->
-<div class="users form">
+<table>
     <fieldset>
         <legend><?php echo ('Editar Producto'); ?></legend>
         <?php echo $this->Form->input('name');
@@ -12,6 +12,7 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end('Editar Producto'); ?>
-</div>
+</table>
+
 
 

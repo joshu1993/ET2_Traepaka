@@ -33,7 +33,7 @@ App::uses('AppModel', 'Model');
 
 */
 
-/*
+
 
 		public $validate = array(
 
@@ -58,7 +58,7 @@ App::uses('AppModel', 'Model');
 					),		
 				    'letters' => array(
 				        'rule' =>  array('custom', '/^[A-Za-zÁáÉéÍíÓóÚúÑñ]*$/'),
-				        'message' => 'El apellido solo debe contener letras'
+				        'message' => 'El nombre solo debe contener letras'
 				    )
 				),
 				'surname' => array(
@@ -78,7 +78,7 @@ App::uses('AppModel', 'Model');
 					),
 				    'size' => array(
 				        'rule' => array('minLength', '4'),
-				        'message' => 'El password debe tener al menos 6 caracter y como máximo 20.'
+				        'message' => 'La contraseña debe tener al menos 6 caracteres y máximo 20.'
 				    )		
 				),
 				'email' => array(
@@ -90,17 +90,16 @@ App::uses('AppModel', 'Model');
 						'message' => 'El correo electrónico ya se encuentra registrado.'					
 					)		
 				),
-				'role' => array(
+				'tipo' => array(
 					'valid' => array(
 					'rule' => array('inList', array('admin', 'user')),
-					'message' => 'Please enter a valid role',
+					'message' => 'Por favor introduce un tipo váiido',
 					'allowEmpty' => false
 					)
 				)
 		);
 	
-*/
-	
+
 		public $hasMany = array(
 					'Producto'=> array(
 						'className'=>'Producto',

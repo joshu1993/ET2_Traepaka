@@ -44,15 +44,15 @@ class AppController extends Controller {
         'Paginator',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'posts',
+                'controller' => 'users',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
-                'controller' => 'posts',
+                'controller' => 'users',
                 'action' => 'index'
             ),
             'loginAction' => array(
-				"controller"=>"posts", 
+				"controller"=>"users", 
 				"action"=>"index"
 			
 			),
