@@ -73,15 +73,15 @@ p {
 
 /** Layout **/
 #container {
-	text-align: left;
+	/*text-align: rigt;*/
 }
 
 #header{
-	padding: 10px 20px;
+	padding: 0px 0px;
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	background: #003d4c url('../img/icon.png') no-repeat left;
 	color: #fff;
 	padding: 0 30px;
 }
@@ -100,18 +100,18 @@ p {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
+	padding: auto;
 	overflow: auto;
 }
 #footer {
 	clear: both;
-	padding: 6px 10px;
+	padding: 0px 0px;
 }
 #header a, #footer a {
 	color: #fff;
 }
 #cake-powered {
-	float: right;
+	float: left;
 }
 
 /** containers **/
@@ -260,6 +260,7 @@ dd {
 /** Forms **/
 form {
 	clear: both;
+	margin-left: 20px;
 	margin-right: 20px;
 	padding: 0;
 	width: 95%;
