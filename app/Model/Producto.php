@@ -5,13 +5,13 @@ App::uses('AppModel', 'Model');
 
 class Producto extends AppModel
  {
- 
+ /*
     var $name = 'Image';
     var $actsAs = array(
-        'MeioUploadBehavior' => array('filename')
+        'MeioUpload' => array('filename')
 		);
 		
-		
+	*/	
  
 	public $belongsTo = array(
 		'User'=>array(
