@@ -55,6 +55,9 @@
                 <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>Ramon
                 </button>
             </div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+           <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
         </ul>      
     </div>
   </div>
