@@ -45,8 +45,8 @@ class AppController extends Controller {
         'Auth' => array(
             'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-            'authError' => 'You must be logged in to view this page.',
-            'loginError' => 'Invalid Username or Password entered, please try again.')
+            'authError' => 'Debes estar registrado para ver esta página.',
+            'loginError' => 'Usuario o contraseña invalidos, por favor inténtelo de nuevos.')
         );
     
     // only allow the login controllers only
@@ -61,6 +61,10 @@ class AppController extends Controller {
     }
 
     public function View() {
+
+    }
+
+    public function Views() {
 
     }
 

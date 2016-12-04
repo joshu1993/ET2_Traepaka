@@ -120,7 +120,7 @@ App::uses('AppController', 'Controller');
 				$this->User->id = $id;
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('El usuario ha sido modificado'));
-					$this->redirect(array('action' => 'edit', $id));
+					$this->redirect(array('action' => 'index', $id));
 				}else{
 					$this->Session->setFlash(__('No se ha podido modificar el usuario.'));
 				}
@@ -131,7 +131,7 @@ App::uses('AppController', 'Controller');
 			}
         }
 		
-		
+/*		
 		public function eliminar($id)
 		{
 			
@@ -145,7 +145,9 @@ App::uses('AppController', 'Controller');
 				$this->redirect(array('action' => 'index'));
 			}
 		}
-/*
+*/
+
+
 	    public function delete($id = null) {
 		
 			if (!$id) {
@@ -163,7 +165,7 @@ App::uses('AppController', 'Controller');
         	$this->Session->setFlash(__('No se ha podido eliminar el usuario'));
         	$this->redirect(array('action' => 'index'));
     	}
-*/
+
 
 /*		public function delete($id = null) {
         // Prior to 2.5 use

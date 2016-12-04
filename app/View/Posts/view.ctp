@@ -67,7 +67,7 @@
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
           <li>
           <div id="iniciar_sesion" class= "col-sm-2">
-          <button type="submit" class="iniciosesion">Iniciar Sesión</button>
+          <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
           </div> 
           </li>
         </ul>
