@@ -51,19 +51,17 @@
           <li class="active"><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-           <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
-        </ul>      
+           <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
+        </ul>     
     </div>
   </div>
 </nav>
   </header>
 
-
-<h1>Detalles del producto <?php echo $producto['Producto']['id']; ?></h1>
-
 <div class="user form">
 
-<p><strong>Id: </strong><?php echo $producto['Producto']['id']; ?></p>
+<h1>Detalles del producto <?php echo $producto['Producto']['name']; ?></h1>
+
 <p><strong>Name: </strong><?php echo $producto['Producto']['name']; ?></p>
 <p><strong>Description: </strong><?php echo $producto['Producto']['description']; ?></p>
 <p><strong>Place: </strong><?php echo $producto['Producto']['place']; ?></p>
@@ -73,10 +71,8 @@
 
 </div>
 
-
-
-  
-  <?php
+<div class="user form">
+<?php
   echo $this->Html->link('Volver a la lista de productos',array('controller'=>'productos','action'=>'index'));
 ?>
 </div>

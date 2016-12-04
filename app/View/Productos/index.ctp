@@ -54,6 +54,7 @@
         <div id="nombredeusuario" class= "col-sm-1">
                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
                </button>
+              <!-- <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>&nbsp<?php echo $this->Form->postLink('Usuario', array('controller'=>'users','action'=> 'index', $user['User']['id'])); ?></button>-->
                 <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
             </div>
         </ul>
@@ -91,8 +92,11 @@
             </div>
               <h3><?php echo $producto['Producto']['description']; ?></h3>
             <div id="botones" class="col-sm-6" >
-              <button type="submit"class="verdetalles"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></button>
-              <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
+              <button type="submit" class="editar"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar', $producto['Producto']['id'])); ?></button>
+
+              <button type="submit" class="eliminar"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
+
+              <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Ver detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
             </div>
           </div>
 		    </div>
