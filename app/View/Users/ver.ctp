@@ -1,9 +1,9 @@
-
 <?php
     echo $this->Html->meta('icon');
 
-    echo $this->Html->css(array('cake.generic','traepaka.css','bootstrap.min','bootstrap-theme.min'));
-    echo $this->Html->script(array('jquery','npm','bootstrap.min'));
+    echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->css('traepaka.css'); 
+    echo $this->Html->script(array('jquery','bootstrap.min'));
 
     echo $this->fetch('meta');
     echo $this->fetch('css');
@@ -11,9 +11,8 @@
   ?>
 <!doctype html>
 <html>
-
-<!--
 <head>
+<!--
 <meta charset="UTF-8">
 
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0, user-scalable=no">
@@ -23,10 +22,9 @@
  <link rel="stylesheet" href="css/traepaka.css"></link>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  <title>Traepaká</title>
-
+-->
 </head>
 
--->
 <body>
   <header>
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -47,43 +45,14 @@
         <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
+
           <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
-<<<<<<< HEAD
-       <!--   <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a>Casa y Jardín</a></li>
-            <li><a>Caza y Pesca</a></li>
-            <li><a>Deportes</a></li>
-            <li><a>Mobiliario</a></li>
-            <li><a>Moda</a></li>
-            <li><a>Motor</a></li>
-            <li><a>Tecnología</a></li>
-          </ul>
-          </li>  
-          <li> 
-            <form class="navbar-form">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Buscar producto...">
-                </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
-          </li>
-        -->
-=======
-           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
->>>>>>> origin/master
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
-           </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-   				 <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
-   				</ul>
-         
-          
-       
-      
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+           <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
+        </ul>      
     </div>
   </div>
 </nav>
@@ -126,6 +95,7 @@
 -->
 	
 	<?php
-	echo $this->Html->link('Volver lista de usuarios',array('controller'=>'users','action'=>'index'));
+	echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));
 ?>
 
+</body>

@@ -1,7 +1,8 @@
 <?php
     echo $this->Html->meta('icon');
 
-    echo $this->Html->css(array('traepaka.css','bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->css('traepaka.css'); 
     echo $this->Html->script(array('jquery','bootstrap.min'));
 
     echo $this->fetch('meta');
@@ -10,8 +11,6 @@
   ?>
 <!doctype html>
 <html>
-
-
 <head>
 <!--
 <meta charset="UTF-8">
@@ -48,59 +47,16 @@
         <ul class="nav navbar-nav">
 
           <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
-           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
-           </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-   				 <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
-   				</ul>
-         
-          
-<<<<<<< HEAD
-=======
-       
-      
-=======
-          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?>>Inicio</a></li>
-         <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a>Casa y Jardín</a></li>
-            <li><a>Caza y Pesca</a></li>
-            <li><a>Deportes</a></li>
-            <li><a>Mobiliario</a></li>
-            <li><a>Moda</a></li>
-            <li><a>Motor</a></li>
-            <li><a>Tecnología</a></li>
-          </ul>
-          </li>  
-          <li> 
-            <form class="navbar-form">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Buscar producto...">
-                </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
-          </li>
-        -->
-          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
-          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
-          <li>
-          <div id="iniciar_sesion" class= "col-sm-2">
-          <button type="submit" class="iniciosesion" onClick="location.href = '/ET2_Traepaka/app/View/Users/login.ctp' ">Iniciar Sesión</button>
-          </div> 
-          </li>
         </ul>
-      </ul>
->>>>>>> dc7ca328afc64eb5b255831dfdd08273e66fe726
->>>>>>> 0ff2fbe086f23874847454362a3f23adb5076d2c
+        <ul class="nav navbar-nav navbar-right">
+           <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
+        </ul>      
     </div>
   </div>
 </nav>
   </header>
-
 
 
 <!-- app/View/Users/index.ctp -->

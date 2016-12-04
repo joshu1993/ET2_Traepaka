@@ -1,7 +1,8 @@
 <?php
     echo $this->Html->meta('icon');
 
-    echo $this->Html->css(array('traepaka.css','bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->css('traepaka.css'); 
     echo $this->Html->script(array('jquery','bootstrap.min'));
 
     echo $this->fetch('meta');
@@ -10,8 +11,6 @@
   ?>
 <!doctype html>
 <html>
-
-
 <head>
 <!--
 <meta charset="UTF-8">
@@ -47,17 +46,13 @@
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
 
-          <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
-           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
+          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
-           </ul>
-
-          <ul class="nav navbar-nav navbar-right">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
    				 <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
-   				</ul>
-         
-          
+   		  </ul>      
     </div>
   </div>
 </nav>
