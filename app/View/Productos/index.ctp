@@ -43,7 +43,7 @@
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
           <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?>>Inicio</a></li>
-          <li class="dropdown">
+         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a>Casa y Jardín</a></li>
@@ -63,8 +63,8 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
           </li>
+          -->
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
-           <li><a <?php echo $this->Html->link('Usuarios', '/Users/view', array('class' => 'button')); ?>>Usuarios</a>Usuarios</a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
           <li>
           <div id="iniciar_sesion" class= "col-sm-2">
