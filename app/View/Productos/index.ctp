@@ -85,7 +85,7 @@
               <img src="/ET2_Traepaka/app/webroot/img/"></img>
             </div>
             <div id="nombreProducto" >
-            
+
               <h1><?php echo $producto['Producto']['name']; ?></h1>
               <h2><?php echo $producto['Producto']['place']; ?></h2>
 
@@ -93,11 +93,12 @@
             </div>
               <h3><?php echo $producto['Producto']['description']; ?></h3>
             <div id="botones" class="col-sm-6" >
+              <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
+
               <button type="submit" class="editar"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar', $producto['Producto']['id'])); ?></button>
 
               <button type="submit" class="eliminar"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
 
-              <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Ver detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
             </div>
           </div>
 		    </div>

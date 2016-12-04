@@ -92,11 +92,10 @@
         <h2>650€ Madrid</h2>
         </div>
         <h3>Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.</h3>
-        <div id="botones" class="col-sm-6" >
+   <!--     <div id="botones" class="col-sm-6" >
         <button type="submit" class="verdetalles"><?php echo $this->Html->link('Ver detalles',array('controller'=>'productos','action'=>'ver')); ?></button>
-        <!--<button type="submit"class="verdetalles"> Ver detalles</button>-->
         <button type="submit" class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -107,10 +106,10 @@
         <h2>20€ Leon</h2>
         </div>
         <h3>Guantes de boxeo de la marca Everlast, talla 14 oz. Se encuentran nuevos, no se le ha llegado a dar uso. Incluyo bolsa de transporte de los mismos.</h3>
-        <div id="botones" class="col-sm-6" >
+        <!--<div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       
       <div id="cuadroanuncio" class= "col-sm-4">
@@ -122,10 +121,10 @@
         <h2>550€ Santander</h2>
         </div>
         <h3>Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.</h3>
-        <div id="botones" class="col-sm-6" >
+       <!-- <div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -136,10 +135,10 @@
         <h2>4.600€ Burgos</h2>
         </div>
         <h3>Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso,solo tiene 15.738kms. Revisiones anuales hechas.</h3>
-        <div id="botones" class="col-sm-6" >
+        <!--<div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -150,10 +149,10 @@
         <h2>115€ Madrid</h2>
         </div>
         <h3>Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable</h3>
-        <div id="botones" class="col-sm-6" >
+       <!-- <div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero">          Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -164,10 +163,10 @@
         <h2>350€ Lugo</h2>
         </div>
         <h3>Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.</h3>
-        <div id="botones" class="col-sm-6" >
+        <!--<div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -178,10 +177,10 @@
         <h2>225€ Bilbao</h2>
         </div>
         <h3>Sofa Cheslong en color marron muy confortable y con asientos extensibles. Comprado en 2015, se mantiene en perfecto estado. Medidas: 223x95x75. Precio en ikea 980€. No envío.</h3>
-        <div id="botones" class="col-sm-6" >
+        <!--<div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -192,10 +191,10 @@
         <h2>1.750€ Murcia</h2>
         </div>
         <h3>Tractor cortacesped con chasis de acero y motor de 4 tiempos OHV HECHT, ajuste central de la altura de corte. La zona recomendada 3000-4000 m2. No negocio precio.</h3>
-        <div id="botones" class="col-sm-6" >
+        <!--<div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
       <div id="cuadroanuncio" class= "col-sm-4">
         <div id="imagenproducto">
@@ -206,10 +205,10 @@
         <h2>30€ Alicante</h2>
         </div>
         <h3>Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.</h3>
-        <div id="botones" class="col-sm-6" >
+       <!-- <div id="botones" class="col-sm-6" >
         <button class="verdetalles"> Ver detalles</button>
         <button class="loquiero"> Lo quiero!</button>
-        </div>
+        </div>-->
       </div>
     </div>
   </section>

@@ -69,6 +69,10 @@
 
 <h1>Detalles del producto <?php echo $producto['Producto']['name']; ?></h1>
 
+</div>
+
+<div class="user form">
+
 <p><strong>Name: </strong><?php echo $producto['Producto']['name']; ?></p>
 <p><strong>Description: </strong><?php echo $producto['Producto']['description']; ?></p>
 <p><strong>Place: </strong><?php echo $producto['Producto']['place']; ?></p>

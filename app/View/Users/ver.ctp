@@ -68,8 +68,9 @@
 
 <div class="user form">
 <h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>
+</div>
 
-
+<div class="user form">
 
 <p><strong>Username: </strong><?php echo $user['User']['username']; ?></p>
 <p><strong>Name: </strong><?php echo $user['User']['name']; ?></p>
