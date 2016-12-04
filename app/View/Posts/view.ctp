@@ -2,7 +2,7 @@
     echo $this->Html->meta('icon');
 
     echo $this->Html->css(array('traepaka.css','bootstrap.min','bootstrap-theme.min'));
-    echo $this->Html->script(array('jquery','npm','bootstrap.min'));
+    echo $this->Html->script(array('jquery','bootstrap.min'));
 
     echo $this->fetch('meta');
     echo $this->fetch('css');
