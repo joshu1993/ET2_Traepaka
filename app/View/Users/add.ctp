@@ -47,7 +47,7 @@
         <ul class="nav navbar-nav">
 
           <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
-          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/vista', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
 
@@ -57,11 +57,11 @@
   </header>
   
 <!-- app/View/Users/add.ctp -->
-
+<div class="users form">
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
 
-        <legend><?php echo ('Añadir Usuario'); ?></legend>
+        <legend><?php echo ('Registro de usuarios'); ?></legend>
 
         <?php echo $this->Form->input('username');
 		echo $this->Form->input('name');
@@ -74,15 +74,17 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end('Añadir usuario'); ?>
+</div>
+<div class="users form">
 <table>
-
 <?php 
 if($this->Session->check('Auth.User')){
-echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action'=>'view') ); 
-echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+echo $this->Html->link( "Volver a la lista de usuarios",   array('controller'=>'users','action'=>'index')); 
+echo $this->Html->link( "Logout",   array('action'=>'logout')); 
 }else{
-echo $this->Html->link( "Volver a la lista de usuarios",   array('controller'=>'users','action'=>'index') ); 
+echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action'=>'view')); 
 }
 ?>
 </table>
+</div>
 </body>

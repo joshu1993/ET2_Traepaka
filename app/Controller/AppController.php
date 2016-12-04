@@ -51,7 +51,7 @@ class AppController extends Controller {
     
     // only allow the login controllers only
     public function beforeFilter() {
-        $this->Auth->allow('login');
+        $this->Auth->allow('view','login');
     }
     
     public function isAuthorized($user) {
@@ -63,6 +63,15 @@ class AppController extends Controller {
     public function View() {
 
     }
+
+    public function Vista() {
+
+    }
+
+    public function Index() {
+
+    }
+
 
 
     /*public function beforeFilter() {

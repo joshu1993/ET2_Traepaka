@@ -9,7 +9,7 @@ class ProductosController extends AppController
 	public function beforeFilter() {
 	    	parent::beforeFilter();
 			
-	        $this->Auth->allow('index', 'nuevo','editar');
+	        $this->Auth->allow('');
 	        //$this->set('current_user', $this->Auth->user());
 			
 	    }

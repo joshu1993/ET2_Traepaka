@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
 	
    		public function beforeFilter() {
        		parent::beforeFilter();
-        	$this->Auth->allow('login','add'); 
+        	$this->Auth->allow('view','login','add'); 
     	}
 	
 		public function login() {
