@@ -81,7 +81,7 @@
 <!-- app/View/Users/add.ctp -->
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
-        <legend><?php echo ('Add User'); ?></legend>
+        <legend><?php echo ('Añadir Usuario'); ?></legend>
         <?php echo $this->Form->input('username');
 		echo $this->Form->input('name');
 		echo $this->Form->input('surname');
