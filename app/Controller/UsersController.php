@@ -32,8 +32,8 @@ App::uses('AppController', 'Controller');
 		}
 
 		public function logout() {
-				/*$this->redirect($this->Auth->logout());*/
-				$this->redirect(array('action' => 'index')
+				$this->redirect($this->Auth->logout());
+				/*$this->redirect(array('action' => 'index')*/
 		}
 
    		public function index() {

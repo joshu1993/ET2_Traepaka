@@ -49,9 +49,6 @@
           <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-           <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
         </ul>      
     </div>
   </div>

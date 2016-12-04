@@ -101,7 +101,11 @@
     echo $this->Html->link('Añadir nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
     ?>
   </table>
-
+  <table>
+  <?php 
+     echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+  ?>
+  </table>
   <section>
   <table>
    <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>

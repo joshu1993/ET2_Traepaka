@@ -17,10 +17,7 @@ class ProductosController extends AppController
 	public function index()
 	{
 		$this->set('productos', $this->Producto->find('all'));
-		
-        
-           
-	
+			
 	}
 
 	

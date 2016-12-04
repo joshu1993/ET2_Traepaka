@@ -103,10 +103,9 @@
 </table>	
 <table>
 <?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>
-<br/>
-<?php 
-echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
-?>
+</table>
+<table>
+<?php echo $this->Html->link( "Logout",   array('action'=>'logout') ); ?>
 </table>
 </body>
 

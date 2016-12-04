@@ -43,15 +43,15 @@ class AppController extends Controller {
         'Session',
         'Paginator',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'loginRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'logout'),
             'authError' => 'Debes estar registrado para ver esta página.',
             'loginError' => 'Usuario o contraseña invalidos, por favor inténtelo de nuevos.')
         );
     
     // only allow the login controllers only
     public function beforeFilter() {
-        $this->Auth->allow('login', 'view');
+        $this->Auth->allow('login');
     }
     
     public function isAuthorized($user) {
