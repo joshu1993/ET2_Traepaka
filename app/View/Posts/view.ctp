@@ -214,12 +214,13 @@
     </div>
   </section>
  <section>
-  <table>
+ <!--<div class="redireccion">
+  
    <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
    <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
    <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-  </table>
-  <!--
+</div>-->
+  
     <div id="paginasbuscar" class="row">
       <nav aria-label="..."><ul class="pagination">...</ul></nav>
         <ul class="pagination">
@@ -240,7 +241,7 @@
           </ul>
       </nav>
     </div>
-    -->
+ 
   </section>
   
   

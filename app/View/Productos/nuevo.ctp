@@ -52,8 +52,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>Ramon
-                </button>
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Control Usuarios',array('controller'=>'users','action'=>'index')); ?>
+               </button>
+                <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
             </div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -86,8 +87,9 @@
     </fieldset>
 <?php echo $this->Form->end('Publicar producto'); ?>
 
+</div>
 
-
+<div class="redireccion">
 <?php 
 if($this->Session->check('Auth.User')){
 echo $this->Html->link( "Volver a la lista de productos",   array('controller'=>'productos','action'=>'index')); 
@@ -96,5 +98,6 @@ echo $this->Html->link( "Volver a la lista de productos",   array('controller'=>
 echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action'=>'view')); 
 }
 ?>
+</div>
 
 </body>

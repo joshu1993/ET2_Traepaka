@@ -52,7 +52,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Control Usuarios',array('controller'=>'users','action'=>'index')); ?>
                </button>
                 <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
             </div>
@@ -109,11 +109,11 @@
 <div class="user form">
 
  <section>
-  <table>
-   <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+
+   <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'enabled'));?>
    <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
-   <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-  </table>
+   <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'enabled'));?>
+  
   <!--
     <div id="paginasbuscar" class="row">
       <nav aria-label="..."><ul class="pagination">...</ul></nav>
@@ -141,15 +141,10 @@
 
 </div>
 
-<div class="user form">
+<div class="redireccion">
 
-<table>
 <?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>
-</table>
 
-<table>
-<?php echo $this->Html->link( "Logout",   array('action'=>'logout') ); ?>
-</table>
 </div>
 
 </body>

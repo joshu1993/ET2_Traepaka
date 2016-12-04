@@ -51,14 +51,15 @@
           <li class="active"><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <div id="nombredeusuario" class= "col-sm-1">
-                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>Ramon
-                </button>
+        <div id="nombredeusuario" class= "col-sm-1">
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Control Usuarios',array('controller'=>'users','action'=>'index')); ?>
+               </button>
+                <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
             </div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
            <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
-        </ul>       
+        </ul>      
     </div>
   </div>
 </nav>
@@ -66,7 +67,7 @@
 
 <!-- app/View/Productos/nuevo.ctp -->
 <div class="user form">
-<table>
+
     <fieldset>
         <legend><?php echo ('Editar Producto'); ?></legend>
         <?php 
@@ -79,10 +80,10 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end('Editar Producto'); ?>
-</table>
-<table>
+
+</div>
+<div class="redireccion">
 <?php echo $this->Html->link('Volver a lista de productos', array('controller'=>'productos','action'=>'index')); ?>
-</table>
 </div>
 </body>
 

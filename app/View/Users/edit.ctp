@@ -52,7 +52,7 @@
         </ul> 
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Control Usuarios',array('controller'=>'users','action'=>'index')); ?>
                </button>
                 <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
             </div>
@@ -85,7 +85,7 @@
     </fieldset>
 <?php echo $this->Form->end('Modificar usuario'); ?>
 </div>
-<div class="users form">
+<div class="redireccion">
 
 <table>
 <?php echo $this->Html->link('Volver lista de usuarios',array('controller'=>'users','action'=>'index'));?>

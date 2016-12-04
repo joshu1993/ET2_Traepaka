@@ -9,15 +9,14 @@
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
 </div>
-<div class="users form">
-<table>
+<div class="redireccion">
+
 <?php
- echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
+ 	echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
 ?>
-</table>
-<table>
-	<?php
+
+<?php
 	echo $this->Html->link('Volver al inicio',array('controller'=>'posts','action'=>'view'));
 ?>
-</table>
+
 </div>
