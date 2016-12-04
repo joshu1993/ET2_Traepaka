@@ -43,35 +43,29 @@ class AppController extends Controller {
         'Session',
         'Paginator',
         'Auth' => array(
-            'loginRedirect' => array(
-                'controller' => 'users',
-                'action' => 'index'
-            ),
-            'logoutRedirect' => array(
-                'controller' => 'users',
-                'action' => 'index'
-            ),
-            'loginAction' => array(
-				"controller"=>"users", 
-				"action"=>"index"
-			
-			),
-                
-            'authenticate' => array(
-                'Form' => array(
-                    'passwordHasher' => 'Blowfish'
-                )
-            )
-        )
-    );
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'authError' => 'You must be logged in to view this page.',
+            'loginError' => 'Invalid Username or Password entered, please try again.')
+        );
     
+    // only allow the login controllers only
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
-       // $this->set('current_user', $this->Auth->user());
+        $this->Auth->allow('login');
+    }
+    
+    public function isAuthorized($user) {
+        // Here is where we should verify the role and give access based on role
+        
+        return true;
     }
 
     public function View() {
 
     }
 
+    /*public function beforeFilter() {
+        $this->Auth->allow('login', 'view');
+       // $this->set('current_user', $this->Auth->user());
+    }*/
 }

@@ -7,17 +7,12 @@ USE traepaka_bd;
 */
 DROP DATABASE IF EXISTS `cakephp`;
 CREATE DATABASE cakephp;
-/*CREATE DATABASE ebsxjflv_igd;*/
 
 /*CREATE USER 'cakephpuser'@'localhost' IDENTIFIED BY 'cakephppass'; */
-/*CREATE USER 'ebsxj_igd'@'localhost' IDENTIFIED BY 'VilarTheBoss2015';*/
 
 GRANT ALL PRIVILEGES ON cakephp.* TO cakephpuser@'localhost' IDENTIFIED BY "cakephppass";
-/*GRANT ALL PRIVILEGES ON ebsxjflv_igd.* TO 'ebsxj_igd'@'localhost';*/
 
 USE cakephp;
-/*USE ebsxjflv_igd;*/
-
 
 -- -----------------------------------------------------
 -- Table USERS
@@ -32,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password`  VARCHAR(255) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
   `tipo` VARCHAR(20) NOT NULL,
-  `created` DATETIME,
+  `created` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -60,14 +55,14 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `images` (
-     `id` int(8) unsigned NOT NULL auto_increment,
+   `id` int(8) unsigned NOT NULL auto_increment,
 	 `filename` varchar(255) default NULL,
-     `dir` varchar(255) default NULL,
-     `mimetype` varchar(255) NULL,
+   `dir` varchar(255) default NULL,
+   `mimetype` varchar(255) NULL,
 	 `filesize` int(11) unsigned default NULL,
-     `created` datetime default NULL,
-     `modified` datetime default NULL,
-     PRIMARY KEY  (`id`)
+   `created` datetime default NULL,
+   `modified` datetime default NULL,
+    PRIMARY KEY  (`id`)
   ) 
   ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 

@@ -3,14 +3,49 @@ App::uses('AppController', 'Controller');
 
 	class UsersController extends AppController {
 
-
-		public function index() {
+		public $paginate = array(
+       		'limit' => 25,
+    		'order' => array('User.username' => 'asc' ) 
+    	);
+	
+   		public function beforeFilter() {
+       		parent::beforeFilter();
+        	$this->Auth->allow('login','add'); 
+    	}
+	
+		public function login() {
 		
-		$this->set('users', $this->User->find('all'));
+			//if already logged-in, redirect
+			if($this->Session->check('Auth.User')){
+				$this->redirect(array('action' => 'index'));		
+			}
+		
+			// if we get the post information, try to authenticate
+			if ($this->request->is('post')) {
+				if ($this->Auth->login()) {
+					$this->Session->setFlash(__('Bienvenido, '. $this->Auth->user('username')));
+					$this->redirect($this->Auth->redirectUrl());
+				} else {
+					$this->Session->setFlash(__('Nombre de usuario o contraseña invalidos'));
+				}
+			} 
 		}
+
+		public function logout() {
+				$this->redirect($this->Auth->logout());
+		}
+
+   		public function index() {
+				$this->paginate = array(
+					'limit' => 6,
+					'order' => array('User.username' => 'asc' )
+					);
+				$users = $this->paginate('User');
+				$this->set(compact('users'));
+    	}
 	
 		public $helpers = array('Html','Form');
-  
+ /* 
 	  	public function beforeFilter() {
 	    	parent::beforeFilter();
 			
@@ -18,9 +53,7 @@ App::uses('AppController', 'Controller');
 	        //$this->set('current_user', $this->Auth->user());
 			
 	    }
-	
-
-
+*/	
 		public function ver($id= Null){
 		
 			if (!$id)
@@ -38,7 +71,7 @@ App::uses('AppController', 'Controller');
 		}
 		
 		
-
+/*
 		public function login() {
 			if($this->request->is('post')) {
 				if($this->Auth->login()) {
@@ -56,7 +89,7 @@ App::uses('AppController', 'Controller');
 			return $this->redirect($this->Auth->logout());
 		}
 
-		
+*/		
 		
 		public function add() {
 			if($this->request->is('post')) {
@@ -72,24 +105,31 @@ App::uses('AppController', 'Controller');
 
 		public function edit($id = null) {
 
-	    $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+		    if (!$id) {
+				$this->Session->setFlash('Introduce usuario');
+				$this->redirect(array('action'=>'index'));
+			}
+
+			$user = $this->User->findById($id);
+			if (!$user) {
+				$this->Session->setFlash('ID Usuario invalido');
+				$this->redirect(array('action'=>'index'));
+			}
+
+			if ($this->request->is('post') || $this->request->is('put')) {
+				$this->User->id = $id;
+				if ($this->User->save($this->request->data)) {
+					$this->Session->setFlash(__('El usuario ha sido modificado'));
+					$this->redirect(array('action' => 'edit', $id));
+				}else{
+					$this->Session->setFlash(__('No se ha podido modificar el usuario.'));
+				}
+			}
+
+			if (!$this->request->data) {
+				$this->request->data = $user;
+			}
         }
-        if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
-            }
-            $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
-            );
-        } else {
-            $this->request->data = $this->User->findById($id);
-            unset($this->request->data['User']['password']);
-        }
-    }
-		
 		
 		
 		public function eliminar($id)
@@ -105,6 +145,25 @@ App::uses('AppController', 'Controller');
 				$this->redirect(array('action' => 'index'));
 			}
 		}
+/*
+	    public function delete($id = null) {
+		
+			if (!$id) {
+				$this->Session->setFlash('Introduce un usuario');
+				$this->redirect(array('action'=>'index'));
+			}
+		
+        	$this->User->id = $id;
+
+        	if (!$this->User->exists()) {
+            	$this->Session->setFlash('Usuario invalido');
+				$this->redirect(array('action'=>'index'));
+        	}
+
+        	$this->Session->setFlash(__('No se ha podido eliminar el usuario'));
+        	$this->redirect(array('action' => 'index'));
+    	}
+*/
 
 /*		public function delete($id = null) {
         // Prior to 2.5 use
