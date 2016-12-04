@@ -14,9 +14,10 @@
 <?php
  	echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
 ?>
+</div>
 
+<div class="redireccion">
 <?php
 	echo $this->Html->link('Volver al inicio',array('controller'=>'posts','action'=>'view'));
 ?>
-
 </div>
