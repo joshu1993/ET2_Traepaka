@@ -36,7 +36,8 @@ class Producto extends AppModel
 					'message'=> 'El nombre del producto debe ser unico'
 				)
 			),
-		'descripcion'=> array(
+
+		'description'=> array(
 				'notEmpty' => array(
 					'rule'=> 'notEmpty'
 				)
