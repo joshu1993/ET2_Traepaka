@@ -31,7 +31,7 @@ class ProductosController extends AppController
 				$this->Flash->success('El producto ha sido creado');
 				return $this ->redirect(array('action'=> 'index'));
 			}
-			$this->Flash->error('No se ha podido añadir el producto');
+			$this->Flash->error('No se puedo crear producto');
 		}
 		$producto= $this->Producto->Producto->find('list');
 		$this->set('producto',$producto);

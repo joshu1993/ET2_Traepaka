@@ -95,7 +95,7 @@
      
     </div>
   </section>
-<div class="user form">
+
   <table>
   <!--<button type="submit" class="verdetalles"><?php echo $this->Form->Link('Añadir nuevo producto', array('action'=> 'nuevo'), array('confirm' => 'Añadir producto ')); ?></button>-->
     <?php
@@ -107,8 +107,6 @@
      echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
   ?>
   </table>
-  </div>
-
   <section>
   <table>
    <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
