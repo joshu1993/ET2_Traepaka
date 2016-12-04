@@ -10,5 +10,8 @@
 <?php echo $this->Form->end(__('Login')); ?>
 </div>
 <?php
+
  echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
+ echo $this->Html->link( "Añadir nuevo usuario",   array('action'=>'add') ); 
+
 ?>

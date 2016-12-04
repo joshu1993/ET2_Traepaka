@@ -82,7 +82,9 @@
 <!-- app/View/Users/add.ctp -->
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
-        <legend><?php echo ('Crear Usuario'); ?></legend>
+
+        <legend><?php echo ('Añadir Usuario'); ?></legend>
+
         <?php echo $this->Form->input('username');
 		echo $this->Form->input('name');
 		echo $this->Form->input('surname');
@@ -102,7 +104,7 @@ echo $this->Html->link( "Volver a inicio",   array('action'=>'index') );
 echo "<br>";
 echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
 }else{
-echo $this->Html->link( "Volver a la pantalla de login",   array('action'=>'login') ); 
+echo $this->Html->link( "Volver a la lista de usuarios",   array('controller'=>'users','action'=>'index') ); 
 }
 ?>
 </table>
