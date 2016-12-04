@@ -93,7 +93,8 @@
         </div>
         <h3>Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.</h3>
         <div id="botones" class="col-sm-6" >
-        <button type="submit"class="verdetalles"> Ver detalles</button>
+        <button type="submit" class="verdetalles"><?php echo $this->Html->link('Ver detalles',array('controller'=>'productos','action'=>'ver')); ?></button>
+        <!--<button type="submit"class="verdetalles"> Ver detalles</button>-->
         <button type="submit" class="loquiero"> Lo quiero!</button>
         </div>
       </div>

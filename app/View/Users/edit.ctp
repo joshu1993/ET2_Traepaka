@@ -55,6 +55,7 @@
 </nav>
   </header>
 <!-- app/View/Users/edit.ctp -->
+<div class="users form">
 
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
@@ -72,7 +73,12 @@
 ?>
     </fieldset>
 <?php echo $this->Form->end('Modificar usuario'); ?>
+</div>
+<div class="users form">
+
 <table>
 <?php echo $this->Html->link('Volver lista de usuarios',array('controller'=>'users','action'=>'index'));?>
 </table>
+
+</div>
 </body>

@@ -56,11 +56,11 @@
                 </button>
             </div>
         </ul>
-        <li>  
+        
         <ul class="nav navbar-nav navbar-right">
            <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
         </ul> 
-        </li>    
+           
     </div>
   </div>
 </nav>

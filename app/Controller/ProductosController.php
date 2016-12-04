@@ -33,12 +33,28 @@ class ProductosController extends AppController
 			}
 			$this->Flash->error('No se puedo crear producto');
 		}
-		$users= $this->Producto->User->find('list');
-		$this->set('users',$users);
+		$producto= $this->Producto->Producto->find('list');
+		$this->set('producto',$producto);
 	}
 	
 	
-	
+	public function ver($id= Null){
+		
+			if (!$id)
+			{
+				throw new NotFoundException('Datos Invalidos');
+			}
+
+			$producto= $this->Producto->findById($id);
+
+			if(!$producto)
+			{
+				throw new NotFoundException('El producto no existe');
+			}
+			$this-> set('producto', $producto);
+		}
+
+
 	public function editar($id=null)
 	{
 		if(!$id)
@@ -75,7 +91,7 @@ class ProductosController extends AppController
 		}
 		if($this->Producto->delete($id))
 		{
-			$this->Flash->success('El prodcuto con id' . $id . 'ha sido eliminado');
+			$this->Flash->success('El producto con id' . $id . 'ha sido eliminado');
 			$this->redirect(array('action'=>'index'));
 		}
 	}

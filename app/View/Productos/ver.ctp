@@ -51,43 +51,53 @@
           <li class="active"><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-        <div id="nombredeusuario" class= "col-sm-1">
-                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>Ramon
-                </button>
-            </div>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-           <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
+           <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
         </ul>      
     </div>
   </div>
 </nav>
   </header>
 
-   
 
-<!-- app/View/Productos/nuevo.ctp -->
+<h1>Detalles del producto <?php echo $producto['Producto']['id']; ?></h1>
+
 <div class="user form">
-<table>
 
-<?php echo $this->Form->create('Producto', array('type' => 'file')); ?>
-    <fieldset>
-        <legend><?php echo ('Crear Producto'); ?></legend>
-        <?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('description', array('rows'=>3));
-		echo $this->Form->input('imagen',array('type' => 'file'));
-		echo $this->Form->input('dir',array('type' => 'hidden'));
-		echo $this->Form->input('place');
-        echo $this->Form->input('price');
-		echo $this->Form->input('category_id');
-        echo $this->Form->input('user_id');
-    ?>
-    </fieldset>
-<?php echo $this->Form->end('Publicar producto'); ?>
-</table>
-<table>
-<?php echo $this->Html->link('Volver a lista de productos', array('controller'=>'productos','action'=>'index')); ?>
-</table>
+<p><strong>Id: </strong><?php echo $producto['Producto']['id']; ?></p>
+<p><strong>Name: </strong><?php echo $producto['Producto']['name']; ?></p>
+<p><strong>Description: </strong><?php echo $producto['Producto']['description']; ?></p>
+<p><strong>Place: </strong><?php echo $producto['Producto']['place']; ?></p>
+<p><strong>Price: </strong><?php echo $producto['Producto']['price']; ?></p>
+<p><strong>Category: </strong><?php echo $producto['Producto']['category']; ?></p>
+<p><strong>Created: </strong><?php echo $producto['Producto']['created']; ?></p>
+
+</div>
+<div class="user form">
+<!--
+<h3>Productos Usuario:</h3>
+
+<?php if(empty($user['Producto'])): >?
+	
+	<p> No tiene productos asociados </p>
+	
+<?php endif; ?>	
+
+<?php foreach($user['Producto'] as $us): ?>{
+		
+		<p><?php echo Nombre: $us['name']; ?></p>
+		<p><?php echo Descripcion: $us['description']; ?></p>
+		<p><?php echo Lugar: $us['place']; ?></p>
+		<p><?php echo Precio: $us['price']; ?></p>
+		<p><?php echo Categoria: $us['category']; ?></p>
+		<p><?php echo Creado: $us['created']; ?></p>
+		
+	}
+	<?php endforeach; ?>
+
+-->
+	
+	<?php
+	echo $this->Html->link('Volver a la lista de productos',array('controller'=>'productos','action'=>'index'));
+?>
 </div>
 </body>

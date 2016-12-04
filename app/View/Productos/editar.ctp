@@ -65,6 +65,7 @@
   </header>
 
 <!-- app/View/Productos/nuevo.ctp -->
+<div class="user form">
 <table>
     <fieldset>
         <legend><?php echo ('Editar Producto'); ?></legend>
@@ -78,6 +79,7 @@
     </fieldset>
 <?php echo $this->Form->end('Editar Producto'); ?>
 </table>
+</div>
 </body>
 
 
