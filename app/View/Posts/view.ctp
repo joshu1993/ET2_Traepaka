@@ -1,8 +1,13 @@
 <?php
     echo $this->Html->meta('icon');
 
+<<<<<<< HEAD
+    echo $this->Html->css(array('traepaka.css','bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->script(array('jquery','bootstrap.min'));
+=======
     echo $this->Html->css(array('cake.generic','traepaka.css','bootstrap.min','bootstrap-theme.min'));
     echo $this->Html->script(array('jquery','npm','bootstrap.min'));
+>>>>>>> dc7ca328afc64eb5b255831dfdd08273e66fe726
 
     echo $this->fetch('meta');
     echo $this->fetch('css');
@@ -10,6 +15,8 @@
   ?>
 <!doctype html>
 <html>
+
+<!--
 <head>
 <meta charset="UTF-8">
 
@@ -22,6 +29,8 @@
  <title>Traepaká</title>
 
 </head>
+
+-->
 <body>
   <header>
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -42,6 +51,21 @@
         <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
+<<<<<<< HEAD
+          <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
+           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
+          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
+           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+   				 <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
+   				</ul>
+         
+          
+       
+      
+=======
           <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?>>Inicio</a></li>
          <!--<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
@@ -73,6 +97,7 @@
           </li>
         </ul>
       </ul>
+>>>>>>> dc7ca328afc64eb5b255831dfdd08273e66fe726
     </div>
   </div>
 </nav>
@@ -258,8 +283,10 @@
     <footer>
      <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
   </footer>
-  
+  <!--
 <script src="js/jquery.js" ></script>
 <script src="js/bootstrap.js" ></script>
+
+-->
 </body>
 </html>

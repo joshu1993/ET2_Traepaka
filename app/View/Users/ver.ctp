@@ -11,6 +11,8 @@
   ?>
 <!doctype html>
 <html>
+
+<!--
 <head>
 <meta charset="UTF-8">
 
@@ -23,6 +25,8 @@
  <title>Traepaká</title>
 
 </head>
+
+-->
 <body>
   <header>
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -44,6 +48,7 @@
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
           <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
+<<<<<<< HEAD
        <!--   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -65,15 +70,20 @@
             </form>
           </li>
         -->
+=======
+           <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
+>>>>>>> origin/master
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
-          <li>
-          <div id="iniciar_sesion" class= "col-sm-2">
-          <button type="submit" class="iniciosesion">Iniciar Sesión</button>
-          </div> 
-          </li>
-        </ul>
-      </ul>
+           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+   				 <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
+   				</ul>
+         
+          
+       
+      
     </div>
   </div>
 </nav>
