@@ -81,7 +81,11 @@
 <!-- app/View/Users/add.ctp -->
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
+
         <legend><?php echo ('Añadir Usuario'); ?></legend>
+
+    
+
         <?php echo $this->Form->input('username');
 		echo $this->Form->input('name');
 		echo $this->Form->input('surname');
@@ -94,6 +98,15 @@
     </fieldset>
 <?php echo $this->Form->end('Añadir usuario'); ?>
 <table>
-<?php echo $this->Html->link('Volver lista de usuarios',array('controller'=>'users','action'=>'index'));?>
+
+<?php 
+if($this->Session->check('Auth.User')){
+echo $this->Html->link( "Volver a inicio",   array('action'=>'index') ); 
+echo "<br>";
+echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+}else{
+echo $this->Html->link( "Volver a la lista de usuarios",   array('controller'=>'users','action'=>'index') ); 
+}
+?>
 </table>
 </body>
