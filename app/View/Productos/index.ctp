@@ -63,33 +63,47 @@
 
    
     <section>
-    <div id="cuadroproductos" type="submit" class="row">
-      <div id="cuadroanuncio" class= "col-sm-4">
-	  <?php foreach($productos as $producto): ?>
     
-        <div id="imagenproducto">
-        <img src="/ET2_Traepaka/app/webroot/img/futbolin.jpg"></img>
-        </div>
-        <div id="nombreProducto" >
-        <h1><?php echo $producto['Producto']['name']; ?></h1>
-        <h2><?php echo $producto['Producto']['place']; ?></h2>
-		    <h2><?php echo $producto['Producto']['price']; ?></h2>
-        </div>
-        <h3><?php echo $producto['Producto']['description']; ?></h3>
-        <div id="botones" class="col-sm-6" >
-        <button type="submit"class="verdetalles"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></button>
-        <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
-        </div>
-		</div>
+	  <?php foreach($productos as $producto): ?>
+        <div id="cuadroproductos" type="submit" class="row">
+          <div id="cuadroanuncio" class= "col-sm-4">
+            <div id="imagenproducto">
+              <img src="/ET2_Traepaka/app/webroot/img/"></img>
+            </div>
+            <div id="nombreProducto" >
+              <h1><?php echo $producto['Producto']['name']; ?></h1>
+              <h2><?php echo $producto['Producto']['place']; ?></h2>
+
+		          <h2><?php echo $producto['Producto']['price']; ?>€&nbsp</h2>
+            </div>
+              <h3><?php echo $producto['Producto']['description']; ?></h3>
+            <div id="botones" class="col-sm-6" >
+              <button type="submit"class="verdetalles"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></button>
+              <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
+            </div>
+          </div>
+		    </div>
 		<?php endforeach; ?>
-		<?php
-	echo $this->Html->link('Crear nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
-    ?>
+    
       
      
     </div>
   </section>
+
+  <table>
+  <!--<button type="submit" class="verdetalles"><?php echo $this->Form->Link('Añadir nuevo producto', array('action'=> 'nuevo'), array('confirm' => 'Añadir producto ')); ?></button>-->
+    <?php
+    echo $this->Html->link('Añadir nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
+    ?>
+  </table>
+
   <section>
+  <table>
+   <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+   <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
+   <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+  </table>
+  <!--
     <div id="paginasbuscar" class="row">
       <nav aria-label="..."><ul class="pagination">...</ul></nav>
         <ul class="pagination">
@@ -110,6 +124,7 @@
           </ul>
       </nav>
     </div>
+    -->
   </section>
   
   
