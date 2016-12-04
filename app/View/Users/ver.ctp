@@ -48,7 +48,31 @@
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
           <li><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
+<<<<<<< HEAD
+       <!--   <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Categorías<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a>Casa y Jardín</a></li>
+            <li><a>Caza y Pesca</a></li>
+            <li><a>Deportes</a></li>
+            <li><a>Mobiliario</a></li>
+            <li><a>Moda</a></li>
+            <li><a>Motor</a></li>
+            <li><a>Tecnología</a></li>
+          </ul>
+          </li>  
+          <li> 
+            <form class="navbar-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Buscar producto...">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+          </li>
+        -->
+=======
            <li><a <?php echo $this->Html->link('Usuarios', '/Users/index', array('class' => 'button')); ?></a></li>
+>>>>>>> origin/master
           <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
            </ul>
