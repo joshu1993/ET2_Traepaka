@@ -27,7 +27,7 @@ class Producto extends AppModel
 	
 	public $validate = array(
 	
-		'nombre'=> array(
+		'name'=> array(
 				'notEmpty' => array(
 					'rule'=> 'notEmpty'
 				),
@@ -36,9 +36,11 @@ class Producto extends AppModel
 					'message'=> 'El nombre del producto debe ser unico'
 				)
 			),
-		'descripcion'=> array(
+/*
+		'description'=> array(
 				'notEmpty' => array(
-					'rule'=> 'notEmpty'
+				'rule' => array('minLength', '20'),
+                'message'=> 'La descripción debe tener como mínimo 20 caracteres' 
 				)
 			),
 		'place'=> array(
@@ -50,14 +52,16 @@ class Producto extends AppModel
 				'notEmpty' => array(
 					'rule'=> 'notEmpty'
 				)
-			),
-		'category'=> array(
-				'notEmpty' => array(
-					'rule'=> 'notEmpty'
-				)
-			)
+			),*/
+		
+        'category' => array(
+                    'valid' => array(
+                    'rule' => array('inList', array('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros')),
+                    'message' => 'Por favor introduce una categoria válida',
+                    'allowEmpty' => false
+                    ))
 	);
- 
+
 	/*
     private $id_producto;
     private $fecha;

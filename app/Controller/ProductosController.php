@@ -85,7 +85,7 @@ class ProductosController extends AppController
 			$this->Producto->id= $id;
 			if($this->Producto->save($this->request->data))
 			{
-				$this->Flash->success('El prodcuto ha sifo modificado');
+				$this->Flash->success('El producto ha sido modificado');
 				return $this->redirect(array('action'=>'index'));
 			}
 			$this->Flash->error('El registro no pudo ser modificado');
@@ -95,7 +95,36 @@ class ProductosController extends AppController
 			$this->request->data = $producto;
 		}
 	}
-	
+
+	/*
+	public function editar($id = null) {
+
+		    if (!$id) {
+				$this->Session->setFlash('Introduce usuario');
+				$this->redirect(array('action'=>'index'));
+			}
+
+			$user = $this->User->findById($id);
+			if (!$user) {
+				$this->Session->setFlash('ID Usuario invalido');
+				$this->redirect(array('action'=>'index'));
+			}
+
+			if ($this->request->is('post') || $this->request->is('put')) {
+				$this->User->id = $id;
+				if ($this->User->save($this->request->data)) {
+					$this->Session->setFlash(__('El usuario ha sido modificado'));
+					$this->redirect(array('action' => 'index', $id));
+				}else{
+					$this->Session->setFlash(__('No se ha podido modificar el usuario.'));
+				}
+			}
+
+			if (!$this->request->data) {
+				$this->request->data = $user;
+			}
+        }
+	*/
 	public function eliminar($id)
 	{
 		if($this->request->is('get'))
