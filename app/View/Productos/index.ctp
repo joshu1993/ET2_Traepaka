@@ -80,12 +80,12 @@
         <button type="submit"class="verdetalles"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar',$producto['Producto']['id'])); ?></button>
         <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
         </div>
-		
+		</div>
 		<?php endforeach; ?>
 		<?php
 	echo $this->Html->link('Crear nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
     ?>
-      </div>
+      
      
     </div>
   </section>

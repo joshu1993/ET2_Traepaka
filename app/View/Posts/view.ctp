@@ -3,6 +3,7 @@
 
     echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min'));
     echo $this->Html->css('traepaka.css'); 
+    
     echo $this->Html->script(array('jquery','bootstrap.min'));
 
     echo $this->fetch('meta');
@@ -51,7 +52,7 @@
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-   				 <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
+           <button type="submit" class="iniciosesion"><?php echo $this->Html->link('Iniciar Sesión',array('controller'=>'users','action'=>'login')); ?></button>
    		  </ul>      
     </div>
   </div>
