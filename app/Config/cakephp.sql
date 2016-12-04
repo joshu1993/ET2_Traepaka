@@ -1,3 +1,13 @@
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 /*
 CREATE DATABASE traepaka_bd;
@@ -34,7 +44,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
--- Table PRODUCTS
+-- Table PRODUCTOS
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `productos`;
 
@@ -53,15 +63,20 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- -----------------------------------------------------
+-- Table IMAGES
+-- -----------------------------------------------------
 
-CREATE TABLE `images` (
+DROP TABLE IF EXISTS `images`;
+
+CREATE TABLE IF NOT EXISTS `images` (
    `id` int(8) unsigned NOT NULL auto_increment,
-	 `filename` varchar(255) default NULL,
-   `dir` varchar(255) default NULL,
+	 `filename` varchar(255) DEFAULT NULL,
+   `dir` varchar(255) DEFAULT NULL,
    `mimetype` varchar(255) NULL,
-	 `filesize` int(11) unsigned default NULL,
-   `created` datetime default NULL,
-   `modified` datetime default NULL,
+	 `filesize` int(11) unsigned DEFAULT NULL,
+   `created` datetime DEFAULT NULL,
+   `modified` datetime DEFAULT NULL,
     PRIMARY KEY  (`id`)
   ) 
   ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -136,9 +151,9 @@ ALTER TABLE responses_chats
 -- -----------------------------------------------------
 
 INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`tipo`,`created`) VALUES 
-(null, 'rgcarrera', 'Ramon ', 'Gago Carrera', '1234', 'rgcarrera@gmail.com','admin',NOW()), 
-(NULL, 'pepe1993', 'Pepe ', 'Rodriguez Carrera', '1234', 'pepecarrera@gmail.com','user',NOW()), 
-(NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '1234', 'joshua93@gmail.com','admin',NOW());
+(null, 'rgcarrera', 'Ramon ', 'Gago Carrera', '123456', 'rgcarrera@gmail.com','admin',NOW()), 
+(NULL, 'pepe1993', 'Pepe ', 'Rodriguez Carrera', '123456', 'pepecarrera@gmail.com','user',NOW()), 
+(NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '123456', 'joshua93@gmail.com','admin',NOW());
 
 
 -- -----------------------------------------------------
