@@ -67,9 +67,16 @@
 </nav>
   </header>
 
-   
-    <section>
-    
+<div>
+  
+  <!--<button type="submit" class="verdetalles"><?php echo $this->Form->Link('Añadir nuevo producto', array('action'=> 'nuevo'), array('confirm' => 'Añadir producto ')); ?></button>-->
+    <?php
+    echo $this->Html->link('Añadir nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
+    ?>
+
+</div>
+ <section>
+     <div class="user form">
 	  <?php foreach($productos as $producto): ?>
         <div id="cuadroproductos" type="submit" class="row">
           <div id="cuadroanuncio" class= "col-sm-4">
@@ -90,29 +97,20 @@
           </div>
 		    </div>
 		<?php endforeach; ?>
-    
-      
      
     </div>
   </section>
+</div>
 
-  <table>
-  <!--<button type="submit" class="verdetalles"><?php echo $this->Form->Link('Añadir nuevo producto', array('action'=> 'nuevo'), array('confirm' => 'Añadir producto ')); ?></button>-->
-    <?php
-    echo $this->Html->link('Añadir nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
-    ?>
-  </table>
-  <table>
-  <?php 
-     echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
-  ?>
-  </table>
-  <section>
-  <table>
+ <section>
+
+  <div class="user form">
+  
    <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
    <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
    <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-  </table>
+ 
+  </div>
   <!--
     <div id="paginasbuscar" class="row">
       <nav aria-label="..."><ul class="pagination">...</ul></nav>

@@ -79,30 +79,12 @@
 <p><strong>Creado: </strong><?php echo $user['User']['created']; ?></p>
 
 </div>
-<!--
-<h3>Productos Usuario:</h3>
 
-<?php if(empty($user['Producto'])): >?
-	
-	<p> No tiene productos asociados </p>
-	
-<?php endif; ?>	
 
-<?php foreach($user['Producto'] as $us): ?>{
-		
-		<p><?php echo Nombre: $us['name']; ?></p>
-		<p><?php echo Descripcion: $us['description']; ?></p>
-		<p><?php echo Lugar: $us['place']; ?></p>
-		<p><?php echo Precio: $us['price']; ?></p>
-		<p><?php echo Categoria: $us['category']; ?></p>
-		<p><?php echo Creado: $us['created']; ?></p>
-		
-	}
-	<?php endforeach; ?>
 
--->
-	<div class="users form">
-		<?php echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));?>
-	</div>
+
+  <div class="users form">
+    <?php echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));?>
+  </div>
 
 </body>

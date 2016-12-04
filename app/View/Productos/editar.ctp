@@ -69,15 +69,19 @@
 <table>
     <fieldset>
         <legend><?php echo ('Editar Producto'); ?></legend>
-        <?php echo $this->Form->input('name');
-		echo $this->Form->input('description', array('rows'=>3));
-		echo $this->Form->input('place');
+        <?php 
+        echo $this->Form->input('name');
+		    echo $this->Form->input('description', array('rows'=>3));
+		    echo $this->Form->input('place');
         echo $this->Form->input('price');
-		echo $this->Form->input('category');
+		    echo $this->Form->input('category');
         
     ?>
     </fieldset>
 <?php echo $this->Form->end('Editar Producto'); ?>
+</table>
+<table>
+<?php echo $this->Html->link('Volver a lista de productos', array('controller'=>'productos','action'=>'index')); ?>
 </table>
 </div>
 </body>

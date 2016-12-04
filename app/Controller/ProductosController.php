@@ -20,7 +20,7 @@ class ProductosController extends AppController
 			
 	}
 
-	
+/*	
 	public function nuevo()
 	{
 		if($this->request->is('post'))
@@ -36,6 +36,19 @@ class ProductosController extends AppController
 		$producto= $this->Producto->Producto->find('list');
 		$this->set('producto',$producto);
 	}
+
+*/
+		public function nuevo() {
+			if($this->request->is('post')) {
+				$this->Producto->create();
+				if($this->Producto->save($this->request->data)) {
+					$this->Flash->success('EL producto ha sido añadido');
+					 return $this->redirect(array('action'=>'index'));		
+				}
+				$this->Flash->error('EL producto no se ha podido añadir');	
+				$this->redirect($this->referer());			
+			}
+		}
 	
 	
 	public function ver($id= Null){

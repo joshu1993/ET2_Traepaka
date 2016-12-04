@@ -68,26 +68,33 @@
 
 <!-- app/View/Productos/nuevo.ctp -->
 <div class="user form">
-<table>
+
 
 <?php echo $this->Form->create('Producto', array('type' => 'file')); ?>
     <fieldset>
-        <legend><?php echo ('Crear Producto'); ?></legend>
-        <?php
+    <legend><?php echo ('Crear Producto'); ?></legend>
+    <?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('rows'=>3));
-		echo $this->Form->input('imagen',array('type' => 'file'));
-		echo $this->Form->input('dir',array('type' => 'hidden'));
+		echo $this->Form->input('imagen', array('type' => 'file'));
+		echo $this->Form->input('dir', array('type' => 'hidden'));
 		echo $this->Form->input('place');
-        echo $this->Form->input('price');
+    echo $this->Form->input('price');
 		echo $this->Form->input('category_id');
-        echo $this->Form->input('user_id');
+    echo $this->Form->input('user_id');
     ?>
     </fieldset>
 <?php echo $this->Form->end('Publicar producto'); ?>
-</table>
-<table>
-<?php echo $this->Html->link('Volver a lista de productos', array('controller'=>'productos','action'=>'index')); ?>
-</table>
-</div>
+
+
+
+<?php 
+if($this->Session->check('Auth.User')){
+echo $this->Html->link( "Volver a la lista de productos",   array('controller'=>'productos','action'=>'index')); 
+/*echo $this->Html->link( "Logout",   array('action'=>'logout')); */
+}else{
+echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action'=>'view')); 
+}
+?>
+
 </body>
