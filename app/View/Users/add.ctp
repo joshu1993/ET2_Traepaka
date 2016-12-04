@@ -63,12 +63,13 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
           </li>
-          <li><a <?php echo $this->Html->link('Chats', '/Chats/view', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/views', array('class' => 'button')); ?>>Chats</a>Chats</a></li>
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?>>Productos</a>Productos</a></li>
           <li>
-          <div id="iniciar_sesion" class= "col-sm-2">
-          <button type="submit" class="iniciosesion">Iniciar Sesión</button>
-          </div> 
+              <div id="nombredeusuario" class= "col-sm-1">
+                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>Ramon
+                </button>
+            </div>
           </li>
         </ul>
       </ul>
