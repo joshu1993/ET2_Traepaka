@@ -71,8 +71,6 @@
 
         <legend><?php echo ('Añadir Usuario'); ?></legend>
 
-    
-
         <?php echo $this->Form->input('username');
 		echo $this->Form->input('name');
 		echo $this->Form->input('surname');

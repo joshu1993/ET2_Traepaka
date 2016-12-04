@@ -10,5 +10,12 @@
 <?php echo $this->Form->end(__('Login')); ?>
 </div>
 <?php
+<<<<<<< HEAD
+
+ echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
  echo $this->Html->link( "Añadir nuevo usuario",   array('action'=>'add') ); 
+
+=======
+ echo $this->Html->link( "Add A New User",   array('action'=>'add') ); 
+>>>>>>> parent of 9298fdf... vistas
 ?>
