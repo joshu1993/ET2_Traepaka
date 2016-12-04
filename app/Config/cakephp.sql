@@ -146,14 +146,7 @@ ALTER TABLE responses_chats
   ON UPDATE CASCADE;
 
 */
--- -----------------------------------------------------
--- INSERTS `USERS`
--- -----------------------------------------------------
 
-INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`tipo`,`created`) VALUES 
-(null, 'rgcarrera', 'Ramon ', 'Gago Carrera', '123456', 'rgcarrera@gmail.com','admin',NOW()), 
-(NULL, 'pepe1993', 'Pepe ', 'Rodriguez Carrera', '123456', 'pepecarrera@gmail.com','user',NOW()), 
-(NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '123456', 'joshua93@gmail.com','admin',NOW());
 
 
 -- -----------------------------------------------------
