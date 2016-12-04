@@ -94,9 +94,7 @@
 
 -->
 	<div class="users form">
-	<?php
-	echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));
-?>
-</div>
+		<?php echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));?>
+	</div>
 
 </body>

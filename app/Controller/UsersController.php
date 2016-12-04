@@ -2,6 +2,11 @@
 App::uses('AppController', 'Controller');
 
 	class UsersController extends AppController {
+/*
+	var $helpers = array ('Session'); 
+
+	var $components = array ('Auth','Session'); 
+*/
 
 		public $paginate = array(
        		'limit' => 25,
