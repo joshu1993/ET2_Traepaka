@@ -51,8 +51,16 @@
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-           <!--<button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>-->
-        </ul>      
+            <div id="nombredeusuario" class= "col-sm-1">
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
+               </button>
+                <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
+            </div>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+           <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
+        </ul>     
     </div>
   </div>
 </nav>
@@ -60,6 +68,7 @@
 
 
 <!-- app/View/Users/index.ctp -->
+<div class="user form">
 
 <h1> Lista de usuarios:</h1>
 <table>
@@ -95,18 +104,54 @@
 		<?php unset($user); ?>
 	</tbody>
 </table>
+</div>
 
-<table>
-<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-<?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
-<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-</table>	
+<div class="user form">
+
+ <section>
+  <table>
+   <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+   <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
+   <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+  </table>
+  <!--
+    <div id="paginasbuscar" class="row">
+      <nav aria-label="..."><ul class="pagination">...</ul></nav>
+        <ul class="pagination">
+          <li class="disabled">
+            <span>
+              <span aria-hidden="true">&laquo;</span>
+            </span>
+          </li>
+          <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+          <li> <span>2 <span class="sr-only">(current)</span></span></li>
+          <li> <span>3 <span class="sr-only">(current)</span></span></li>
+          <li> <span>4 <span class="sr-only">(current)</span></span></li>
+          <li> <span>5 <span class="sr-only">(current)</span></span></li>
+          <li> <span>6 <span class="sr-only">(current)</span></span></li>
+          <li> <span>7 <span class="sr-only">(current)</span></span></li>
+          <li> <span>8 <span class="sr-only">(current)</span></span></li>
+          <li> <span>9 <span class="sr-only">(current)</span></span></li>
+          </ul>
+      </nav>
+    </div>
+    -->
+  </section>
+  	
+
+</div>
+
+<div class="user form">
+
 <table>
 <?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>
 </table>
+
 <table>
 <?php echo $this->Html->link( "Logout",   array('action'=>'logout') ); ?>
 </table>
+</div>
+
 </body>
 
 </html>

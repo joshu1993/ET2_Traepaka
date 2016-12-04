@@ -154,7 +154,7 @@ App::uses('AppController', 'Controller');
 */
 
 
-	    public function delete($id = null) {
+/*	    public function delete($id = null) {
 		
 			if (!$id) {
 				$this->Session->setFlash('Introduce un usuario');
@@ -171,6 +171,19 @@ App::uses('AppController', 'Controller');
         	$this->Session->setFlash(__('No se ha podido eliminar el usuario'));
         	$this->redirect(array('action' => 'index'));
     	}
+*/
+    	public function delete($id)
+	{
+		if($this->request->is('get'))
+		{
+			throw new methodNotAllowedException('INCORRECTO');
+		}
+		if($this->User->delete($id))
+		{
+			$this->Flash->success('El usuario con id' . $id . 'ha sido eliminado');
+			$this->redirect(array('action'=>'index'));
+		}
+	}
 
 
 /*		public function delete($id = null) {

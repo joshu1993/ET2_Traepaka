@@ -51,17 +51,25 @@
           <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-           <button type="submit" class="iniciosesion" onClick=" window.location.href='/ET2_Traepaka/login.ctp' ">Iniciar Sesión</button>
-        </ul>      
+        <div id="nombredeusuario" class= "col-sm-1">
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
+               </button>
+                <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
+            </div>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+           <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
+        </ul>     
     </div>
   </div>
 </nav>
   </header>
 
-
+<div class="user form">
 <h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>
 
-<div class="user form">
+
 
 <p><strong>Username: </strong><?php echo $user['User']['username']; ?></p>
 <p><strong>Name: </strong><?php echo $user['User']['name']; ?></p>

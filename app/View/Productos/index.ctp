@@ -52,8 +52,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>
-                </button>
+               <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
+               </button>
                 <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
             </div>
         </ul>
@@ -80,7 +80,7 @@
               <h1><?php echo $producto['Producto']['name']; ?></h1>
               <h2><?php echo $producto['Producto']['place']; ?></h2>
 
-		          <h2><?php echo $producto['Producto']['price']; ?>€&nbsp</h2>
+		          <h2><?php echo $producto['Producto']['price']; ?>€&nbsp&nbsp</h2>
             </div>
               <h3><?php echo $producto['Producto']['description']; ?></h3>
             <div id="botones" class="col-sm-6" >

@@ -52,8 +52,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>Ramon
-                </button>
+                <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>&nbsp<?php echo $this->Html->link('Usuario',array('controller'=>'users','action'=>'index')); ?>
+           </button>
             </div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
