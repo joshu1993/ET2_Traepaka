@@ -9,12 +9,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-/*
-CREATE DATABASE traepaka_bd;
-CREATE USER 'traepakauser'@'localhost' IDENTIFIED BY 'traepakapass';
-GRANT ALL PRIVILEGES ON traepaka_bd.* TO traepakauser@'localhost' IDENTIFIED BY "traepakapass";
-USE traepaka_bd;
-*/
+
 DROP DATABASE IF EXISTS `cakephp`;
 CREATE DATABASE cakephp;
 
@@ -146,7 +141,14 @@ ALTER TABLE responses_chats
   ON UPDATE CASCADE;
 
 */
+-- -----------------------------------------------------
+-- INSERTS `USERS`
+-- -----------------------------------------------------
 
+INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`tipo`,`created`) VALUES 
+(null, 'rgcarrera', 'Ramon ', 'Gago Carrera', '81df60724410ef1ea9a166dad75086bdecfcd35a', 'rgcarrera@gmail.com','admin',NOW()), 
+(NULL, 'pepe1993', 'Pepe ', 'Rodriguez Carrera', '81df60724410ef1ea9a166dad75086bdecfcd35a', 'pepecarrera@gmail.com','user',NOW()), 
+(NULL, 'joshua93', 'Joshua', 'Rodriguez Martiña', '81df60724410ef1ea9a166dad75086bdecfcd35a', 'joshua93@gmail.com','admin',NOW());
 
 
 -- -----------------------------------------------------
